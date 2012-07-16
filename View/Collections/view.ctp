@@ -8,8 +8,8 @@
 
 <div id="header">
 
-	<div id="name">
-		<a href="contact.html">Elodie Antoine</a>
+	<div id="name-box">
+		<a id="name-link" href="contact.html">Elodie Antoine</a>
 	</div>
 	
 	<div id="navig">
@@ -21,13 +21,13 @@
 
 
 <div id="pieces">
-	<img src="./2009page-19.jpg">
+	<img src="/images/2009page-19.jpg">
 </div>
 
 
 
 <div id="etiquettes">
-    <ul id="words">
+    <ul class="words">
         <li><a href="http://elodieantoine.be/2008_07.htm">smoke</a></li>
         <li><a href="http://elodieantoine.be/2008_07.htm">light</a></li>
         <li><a href="http://elodieantoine.be/2008_07.htm">homepage</a></li>

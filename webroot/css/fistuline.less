@@ -23,7 +23,7 @@ xxx
 }
 
 @font-face {
-    font-family: Quattrocento;
+    font-family: Quattro;
 	src: url("./Quattrocento-Regular.ttf");
 }
 
@@ -69,25 +69,33 @@ xxx
 
 /* = textes
 -------------------------------------------------------------- */
-#name{
+#name-box{
     float: left;
     width: 250px;
     left: 10px;
-    top: 10px;
+    top: 10px;  
+}
+
+#name-link{
     font-family: Quattro, serif; 
     text-transform: uppercase;
     font-size: @font-size-mid; 
-    letter-spacing: 0.025em;    
+    letter-spacing: 0.025em;  
+    text-decoration: none;
 }
 
-#navig{
+#navig-box{
     width: auto;
     left: 10px;
     top: 10px;
+}
+
+#navig-link{
     font-family: Quattro, serif; 
     font-size: @font-size-mid;
-    color: #989898;
+    color: light-grey;
 }
+
 
 .titres-img{
     font-family: Cycle, sans; 
@@ -108,8 +116,12 @@ xxx
 .words{
     list-style: none;
     font-family: Cycle, sans; 
-    font-size: @font-size-mid;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
 }
+
+
 
 
 /* = images

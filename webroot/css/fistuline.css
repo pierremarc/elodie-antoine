@@ -14,7 +14,7 @@ xxx
   src: url("./NewsCycle-Regular.ttf");
 }
 @font-face {
-  font-family: Quattrocento;
+  font-family: Quattro;
   src: url("./Quattrocento-Regular.ttf");
 }
 * {
@@ -33,43 +33,45 @@ xxx
   margin-top: 15px;
   margin-left: 30px;
   margin-right: 30px;
-  margin-bottom: 15
-  width: auto;
-  background: yellow;
+  margin-bottom: 15px;
+  width: 95%;
 }
 #pieces {
   float: left;
   margin-top: 15px;
   margin-left: 15px;
   width: auto;
-  background: blue;
 }
 #etiquettes {
   float: right;
   margin-top: 50px;
   margin-right: 15px;
   width: 250px;
-  background: grey;
 }
 /* = textes
 -------------------------------------------------------------- */
-#name {
+#name-box {
   float: left;
   width: 250px;
   left: 10px;
   top: 10px;
+}
+#name-link {
   font-family: Quattro, serif;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.025em;
+  text-decoration: none;
 }
-#navig {
+#navig-box {
   width: auto;
   left: 10px;
   top: 10px;
+}
+#navig-link {
   font-family: Quattro, serif;
   font-size: 12px;
-  color: #989898;
+  color: light-grey;
 }
 .titres-img {
   font-family: Cycle, sans;
@@ -86,8 +88,10 @@ xxx
   color: #ff8080ff;
 }
 .words {
+  list-style: none;
   font-family: Cycle, sans;
-  font-size: 12px;
+  font-size: 15px;
+  text-decoration: none;
 }
 /* = images
 -------------------------------------------------------------- */
