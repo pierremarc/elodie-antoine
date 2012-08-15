@@ -22,5 +22,7 @@
         <td><?php echo $text['Text']['created']; ?></td>
     </tr>
     <?php endforeach; ?>
+    
+    <a href="/texts/add">Add a text</a>
 
 </table>

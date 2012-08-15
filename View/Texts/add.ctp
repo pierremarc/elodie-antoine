@@ -5,6 +5,7 @@
 echo $this->Form->create('Text');
 echo $this->Form->input('title');
 echo $this->Form->input('author');
-echo $this->Form->input('content', array('rows' => '32'));
+echo $this->Form->input('content', array('label'=>'Content','rows' => '12'));
+echo $this->Form->input('Tag.0.name', array('label'=>'Etiquette'));
 echo $this->Form->end('Save Text');
 ?>

@@ -20,7 +20,7 @@ class TextsController extends AppController
 	 {
 		if($this->request->is('post')) 
 		{
-			if($this->Text->save($this->request->data)) 
+			if($this->Text->saveAll($this->request->data)) 
 			{
 				$this->Session->setFlash('Your text has been saved.');
 				$this->redirect(array('action' => 'index'));
