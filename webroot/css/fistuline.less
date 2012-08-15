@@ -12,8 +12,10 @@ xxx
 @color-background: yellow;
 @color-link: #ff8080ff;
 @font-size-small :9px;
-@font-size-mid :12px;
+@font-size-mid :15px;
 @font-size-big :21px;
+@color-high:#ff8080;
+@color-grey1:#999999;
 
 
 
@@ -37,38 +39,25 @@ xxx
 	color: black; 
 	}
 	
-	
-/* = boîtes
+/* 
+--------------------------------------------------------------
+C O L L E C T I O N S
+--------------------------------------------------------------
+*/	
+
+/* Bandeau
 -------------------------------------------------------------- */
 #header{
-    float: left;
-    margin-top:15px;
-    margin-left:30px;
-    margin-right:30px;
-    margin-bottom:15px;
-    width: 95%;
-//     background: yellow;
+	//     float: left;
+	position: relative;
+	margin-top:15px;
+	margin-left:30px;
+	margin-right:30px;
+	margin-bottom:15px;
+	width: 95%;
+// 	background: yellow;
 }
 
-#pieces{
-    float: left;
-    margin-top:15px;
-    margin-left:15px;
-    width: auto;
-//     background: blue;
-}
-
-#etiquettes{
-       float:right;
-       margin-top:50px;
-       margin-right:15px;
-       width: 250px;
-//       background:grey;
-}
-
-
-/* = textes
--------------------------------------------------------------- */
 #name-box{
     float: left;
     width: 250px;
@@ -76,7 +65,7 @@ xxx
     top: 10px;  
 }
 
-#name-link{
+.name-link{
     font-family: Quattro, serif; 
     text-transform: uppercase;
     font-size: @font-size-mid; 
@@ -90,49 +79,80 @@ xxx
     top: 10px;
 }
 
-#navig-link{
-    font-family: Quattro, serif; 
-    font-size: @font-size-mid;
-    color: light-grey;
+.navig-link{
+	font-family: Quattro, serif; 
+	font-size: @font-size-mid;
+	color:@color-grey1;
 }
 
 
-.titres-img{
-    font-family: Cycle, sans; 
-    font-size: @font-size-small;
-    text-transform: uppercase;
-    background-color:#ffffff;
-    opacity:0.6;
-}	
+/* Etiquettes
+ -------------------------------------------------------------- */
+#etiquettes{
+	float:right;
+	margin-top:0px;
+	margin-right:15px;
+	width: 250px;
+// 	background:grey;
+}
 
-/* = mots étiquettes
--------------------------------------------------------------- */
-.main-word{
+.high-word{
     font-family: Cycle, sans; 
     font-size: @font-size-big;
-    color: #ff8080ff;
-}
-
-.words{
+    color: @color-high;
     list-style: none;
-    font-family: Cycle, sans; 
-    font-size: 15px;
     text-align: center;
     text-decoration: none;
 }
 
+.high-word a:link { 
+	color:@color-high;
+	text-decoration:none;
+} 
 
-
-
-/* = images
--------------------------------------------------------------- */
-.pict-tags{ 
-	margin-bottom: 20px;
-}	
-
-.pict-work{ 
-	box-shadow:0px 4px 4px gray;
+.words{
+    list-style: none;
+    font-family: Cycle, sans; 
+    font-size: @font-size-mid;
+    text-align: center;
+    text-decoration: none;
 }
 
-		
-	
+.words a:link { 
+	color:black;
+	text-decoration:none;
+} 
+
+.words a:hover { 
+	color:black;
+	text-decoration:underline;
+} 
+
+
+
+/* Images
+-------------------------------------------------------------- */
+#pieces{
+	position: relative;
+	margin-top:15px;
+	margin-left:15px;
+	width: 80%;
+// 	background: blue;
+}
+
+.pict-box{ 
+	float: left;
+	padding-right:20px;
+}
+
+.pict-img{ 
+	width: 250px;
+}
+
+.pict-cartels{
+	font-family: Cycle, sans; 
+	font-size: @font-size-small;
+	text-transform: uppercase;
+	background-color:#ffffff;
+	opacity:0.6;
+}	

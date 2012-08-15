@@ -7,32 +7,40 @@
 
 
 <div id="header">
-
 	<div id="name-box">
-		<a id="name-link" href="contact.html">Elodie Antoine</a>
+		<a class="name-link" href="contact.html">Elodie Antoine</a>
 	</div>
-	
 	<div id="navig">
-		←     contagion → metaux-lourds.jpg → corpus → Masculin caillou.txt → animal      → 
+		<div class="navig-link">
+			←     contagion → metaux-lourds.jpg → corpus → Masculin caillou.txt → animal      → 
+		</div>
 	</div>
-	
 </div>
-
 
 
 <div id="pieces">
-	<img src="/images/2009page-19.jpg">
+	<div class="pict-box">
+		<img class="pict-img" src="/images/2009page-19.jpg" />
+	</div>
+	<div class="pict-box">
+		<img class="pict-img" src="/images/2005page-07.JPG"/>
+	</div>
+	<div class="pict-box">
+		<img class="pict-img" src="/images/sein-culbuto-2002.jpg" />
+	</div>
 </div>
 
 
-
 <div id="etiquettes">
-    <ul class="words">
-        <li><a href="http://elodieantoine.be/2008_07.htm">smoke</a></li>
-        <li><a href="http://elodieantoine.be/2008_07.htm">light</a></li>
-        <li><a href="http://elodieantoine.be/2008_07.htm">homepage</a></li>
-        <li><a href="http://elodieantoine.be/2008_07.htm">Ariane</a></li>
-        <li><a href="http://elodieantoine.be/2008_07.htm">contagion</a></li>
-    </ul>
+	<div class="high-word">
+	        <li><a href="http://2.bp.blogspot.com/-dGgBA3JUZqk/UB7SuyLr6-I/AAAAAAAACM0/zbHb9mvAjZU/s1600/coffee-and-cigarettes-tom-waits-iggy-pop.jpg" class="high-word" href="http://elodieantoine.be/2008_07.htm">smoke</a></li>
+	</div>
+	
+	<ul class="words">
+		<li><a href="http://elodieantoine.be/2008_07.htm">light</a></li>
+		<li><a href="http://elodieantoine.be/2008_07.htm">homepage</a></li>
+		<li><a href="http://elodieantoine.be/2008_07.htm">Ariane</a></li>
+		<li><a href="http://elodieantoine.be/2008_07.htm">contagion</a></li>
+	</ul>
 
 </div>
