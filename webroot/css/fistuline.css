@@ -30,7 +30,8 @@ xxx
 --------------------------------------------------------------
 C O L L E C T I O N S
 --------------------------------------------------------------
-*//* Bandeau
+*/
+/* Bandeau
 -------------------------------------------------------------- */
 #header {
   position: relative;
@@ -119,4 +120,40 @@ C O L L E C T I O N S
   text-transform: uppercase;
   background-color: #ffffff;
   opacity: 0.6;
+}
+/* 
+--------------------------------------------------------------
+T E X T E S
+--------------------------------------------------------------
+*/h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+#textes h1 {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: Cycle, sans;
+  color: blue;
+}
+.text-author {
+  font-family: Cycle, sans;
+  font-size: 15px;
+}
+.text-created {
+  font-family: Quattro, serif;
+  font-size: 15px;
+}
+.text-content {
+  font-family: Quattro, serif;
+  font-size: 18px;
+}
+.text-tag-item {
+  font-family: Cycle, sans;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
 }
