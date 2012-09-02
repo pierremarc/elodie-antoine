@@ -10,24 +10,35 @@
 	<div id="name-box">
 		<a class="name-link" href="contact.html">Elodie Antoine</a>
 	</div>
-	<div id="navig">
-		<div class="navig-link">
-			←     contagion → metaux-lourds.jpg → corpus → Masculin caillou.txt → animal      → 
-		</div>
+	<div id="navig-box">
+		<a class="navig-link" href="http://fr.wikipedia.org/wiki/Fistuline_h%C3%A9patique">←     contagion → metaux-lourds.jpg → corpus → Masculin caillou.txt → animal      →</a>
+	</div>
 	</div>
 </div>
 
 
 <div id="pieces">
 	<div class="pict-box">
-		<img class="pict-img" src="/images/2009page-19.jpg" />
+		<a href="http://fistuline.local/images/2009page-19.jpg"><img class="pict-img" src="/images/2009page-19.jpg" /></a>
 	</div>
 	<div class="pict-box">
-		<img class="pict-img" src="/images/2005page-07.JPG"/>
+		<a href="http://fistuline.local/images/2005page-07.JPG"><img class="pict-img" src="/images/2005page-07.JPG"/></a>
 	</div>
 	<div class="pict-box">
-		<img class="pict-img" src="/images/sein-culbuto-2002.jpg" />
+		<a href="http://fistuline.local/images/moulures-proliferantes.jpg"><img class="pict-img" src="/images/moulures-proliferantes.jpg" /></a>
 	</div>
+	<div class="pict-box">
+        <a href="http://fistuline.local/images/sein-culbuto-2002.jpg"><img class="pict-img" src="/images/sein-culbuto-2002.jpg" /></a>
+    </div>
+	<div class="pict-box">
+        <a href="http://fistuline.local/images/metaux-lourds.jpg"><img class="pict-img" src="/images/metaux-lourds.jpg" /></a>
+    </div>
+     <div class="pict-box">
+        <a href="http://fistuline.local/images/2009page-10.jpg"><img class="pict-img" src="/images/2009page-10.jpg" /></a>
+    </div>
+    <div class="pict-box">
+        <a href="http://fistuline.local/images/fauteuil-fongique.jpg"><img class="pict-img" src="/images/fauteuil-fongique.jpg" /></a>
+    </div>
 </div>
 
 
