@@ -32,12 +32,13 @@
     </div>
 	<div class="pict-box">
         <a href="http://fistuline.local/images/metaux-lourds.jpg"><img class="pict-img" src="/images/metaux-lourds.jpg" /><span class="pict-cartel">Titre image</span></a>
+    </div>    
     <div class="text-collection-box">
-        <h1>Masculin-Féminin</h1>
-        <p class="text-author"> Sandra Caltagirone, Octobre 2009</p>
-        <p class="text-content">«Beau (...) comme la rencontre fortuite sur une table de dissection d’une machine à coudre et d’un parapluie !». 
-        (Isidore Ducasse, dit Comte de Lautréamont, Les Chants de Maldoror, VI, 1869).</br>
-        L’univers singulier d’Elodie Antoine perturbe les sens et réinvente le réel en un corpus protéiforme qui déjoue malicieusement conventions, 
+        <h1 class="text-title">Masculin-Féminin</h1>
+        <div class="text-author"> Sandra Caltagirone, Octobre 2009</div>
+        <div class="text-content-collec">«Beau (...) comme la rencontre fortuite sur une table de dissection d’une machine à coudre et d’un parapluie !». 
+        (Isidore Ducasse, dit Comte de Lautréamont, <a class="thread-links" href="http://fr.wikipedia.org/wiki/Les_Chants_de_Maldoror">Les Chants de Maldoror</a>, VI, 1869).</br>
+        <p class="text-content-collec">L’univers singulier d’Elodie Antoine perturbe les sens et réinvente le réel en un corpus protéiforme qui déjoue malicieusement conventions, 
         traditions et stéréotypes. Les matières y sont triturées, les formes manipulées, les techniques et usages détournés afin d’explorer les champs du féminin et du masculin. 
         Corps, intimité, séduction, sexualité, reproduction y sont appréhendés avec justesse, dans leur essence comme dans leurs atours. 
         Rouges à lèvres mèches à béton, sein culbuto ou faux cils hameçons constituent les prémisses poético-surréalistes d’une œuvre chargée d’ambigüité et de dérision. 
@@ -51,15 +52,14 @@
         de la jeune écolière, puis dans le trousseau de la future mariée, préfiguraient les linges souillés par les menstrues, les draps tachés du sang de l’hymen, 
         puis de celui des couches... Autant de rituels de passage féminins allègrement dévoyés par Elodie Antoine en des œuvres où le surpiquage d’un couvre-lit esquisse 
         les contours corporels d’un couple lascif, où des cerceaux à broder se muent en cultures de bacilles délicats, où des gaines vieillottes se parent de jolies broderies 
-        aux motifs d’utérus ou de fœtus... Entre érotisme et cycle reproductif. Avec le recours au feutre, matière dense composée de fibres animales et issue d’une technique 
-        millénaire, la plasticienne établit un lien avec la part animale et opère un retour aux origines du textile, en des volumes ductiles réalisés sans coutures. 
+        aux motifs d’utérus ou de fœtus... Entre érotisme et cycle reproductif.</p> 
+        <p class="text-content-collec">Avec le recours au feutre, matière dense composée de fibres animales et issue d’une technique millénaire, la plasticienne établit un lien avec 
+        la part animale et opère un retour aux origines du textile, en des volumes ductiles réalisés sans coutures. 
         Des organismes hybrides et charnels, affables et ludiques, parfois troublants ou angoissants. Replètes et nourricières, les figures blanches contrastent avec 
         les ovoïdes rouges percés d’orifices mystérieux, pleins de vide ou féconds d’étranges tubercules. Organismes issus d’une forme primordiale ou excroissances 
         autofécondées aiment à fomenter des invasions textiles. Ailleurs, une certaine cruauté émane de corps blancs désunis, tranchés net au moyen d’un couteau acéré, 
-        révélant leur émouvante sève rouge, tandis que d’indociles antiformes noires jouent avec l’ombre et la lumière. 
-        </p>
-        
-        
+        révélant leur émouvante sève rouge, tandis que d’indociles antiformes noires jouent avec l’ombre et la lumière.</p>
+        </div>
      </div>
      <div class="pict-box">
         <a href="http://fistuline.local/images/2009page-10.jpg"><img class="pict-img" src="/images/2009page-10.jpg" /><span class="pict-cartel">Titre image</span></a>
@@ -67,6 +67,7 @@
     <div class="pict-box">
         <a href="http://fistuline.local/images/fauteuil-fongique.jpg"><img class="pict-img" src="/images/fauteuil-fongique.jpg" /><span class="pict-cartel">Titre image</span></a>
     </div>
+</div>
 </div>
 
 

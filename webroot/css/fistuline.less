@@ -17,6 +17,9 @@ xxx
 @font-size-big :21px;
 @color-high:#ff8080;
 @color-grey1:#999999;
+@simple-col:300px;
+@simple-col-txt:280px;
+@double-col:600px;
 
 
 
@@ -40,13 +43,12 @@ xxx
 	color: black; 
 	}
 
-a, a.visited, a:hover{ 
-    text-decoration:underline;
-    } 
 
     ul, li {
         margin: 0;
         padding: 0;
+        list-style: none;
+        text-decoration: none;
     }
     
 /* 
@@ -58,14 +60,12 @@ C O L L E C T I O N S
 /* Bandeau
 -------------------------------------------------------------- */
 #header{
-//  float: left;
 	position: relative;
 	margin-top:30px;
 	margin-left:30px;
 	margin-right:30px;
 	margin-bottom:15px;
 	width: 95%;
-// 	background: yellow;
 }
 
 #name-box{
@@ -82,7 +82,6 @@ C O L L E C T I O N S
     text-decoration: none;
 }
 
-
 #navig-box{
     position: relative; 
     margin-left: auto;
@@ -93,8 +92,8 @@ C O L L E C T I O N S
 
 .navig-link{
     font-family: Quattro, serif; 
-	font-size: @font-size-mid;
-	color:@color-grey1;
+    font-size: @font-size-mid;
+    color:@color-grey1;
     text-decoration: none;
 }
 
@@ -105,8 +104,7 @@ C O L L E C T I O N S
     position: absolute;
     right:30px;
     top: 60px;
-	width: 250px;
-// 	background:grey;
+    width: 250px;
 }
 
 .high-word{
@@ -119,15 +117,15 @@ C O L L E C T I O N S
 }
 
 .high-word a:link { 
-	color:@color-high;
-	text-decoration:none;
+    color:@color-high;
+    text-decoration:none;
 } 
 
 .words{
     list-style: none;
     margin-top : 5px;
     font-family: NewsCycle, sans; 
-    font-size: @font-size-mid;
+    font-size: @font-size-body;
     text-align: center;
     text-decoration: none;
 }
@@ -161,16 +159,9 @@ C O L L E C T I O N S
 }
 
 .pict-img{ 
-	width: 300px;
+    width: @simple-col;
 }
 
-// .pict-box a:hover {
-//     bottom: 0;
-//     left:0;
-//     height: 25px;
-//     opacity: 0.3;
-//     width: 300px;
-// }	
 
 a span {
     display: none; 
@@ -213,26 +204,54 @@ h1, h2, h3, h4, h5, h6 {
 .text-collection-box {
     float: left;
     margin-top:15px;
-    padding-right:20px;
-    width: 300px;
+    width: @simple-col-txt;
     height:400px;
-    padding-right:20px;
+    padding: 10px;
     overflow: auto;
     background-color: #ffccaa;
-    margin-left : 5px;
-    margin-right: 5 px;
+    margin-right:20px;
 }
 
+#all-text-box{
+    position: relative;
+    width: 90%;
+}
 
-#texts {    
-    h1 {
-        text-transform : uppercase;
-        font-size: @font-size-mid;
-        font-family: NewsCycle, sans;
-        color : blue;
-        }
-    }
+#titre-box{
+    position: absolute;
+    width: 250px;
+    background-color: #dcd7d7;
+    padding: 10px;
+    margin-left :15px;
+}
 
+// #autres-titres{
+//     position: relative;
+//     margin-top:15px;
+//     margin-left:15px;
+//     width: 250 px;
+//     background: red;
+// }
+
+#text-box{
+    position : relative;
+    padding: 10px;
+    margin-top:50px;
+    margin-left : auto;
+    margin-right : auto;
+    width: @double-col;
+    height : auto;
+}
+
+.text-title {
+    text-transform : uppercase;
+    font-size: @font-size-mid;
+    font-family: NewsCycle, sans;
+    letter-spacing: 0.05em; 
+    margin-top : 0px;
+    margin-bottom : 0px;
+}
+    
 .text-author{
     font-family: NewsCycle, sans; 
     font-size: @font-size-mid;
@@ -245,7 +264,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-content{
     font-family: Quattro, serif; 
-    font-size: @font-size-body;
+    font-size: @font-size-body; 
+    line-height : 23px;
+}
+
+.text-content a:link{
+    font-family: Quattro, serif; 
+    color : @color-high;
+}
+
+.text-content-collec{ 
+    margin-top : 15px;
+    font-family: Quattro, serif; 
+    font-size: @font-size-body;   
+    line-height : 23px;
+}
+
+.thread-links {
+    font-family: Quattro, serif; 
+    background-image: url('/images/fil.png');
+    background-repeat:repeat-x;
+    background-position: bottom;
+    text-decoration: none;
 }
 
 .text-tag-item{
@@ -254,3 +294,34 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     text-decoration: none;
 }
+/* 
+*-----------------------------------------------------------
+ T A G S   I N D E X
+ --------------------------------------------------------------
+ */ 
+
+#tags-index-box{
+    position : relative;
+    padding: 10px;
+    margin-top:50px;
+    margin-left : auto;
+    margin-right : auto;
+    width: 80%;
+    height: auto;
+}
+
+
+
+.list-letter{
+    font-family: Quattro, serif; 
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom:5px;
+    text-align: center;
+}
+
+
+
+
+

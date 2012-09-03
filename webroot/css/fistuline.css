@@ -26,12 +26,11 @@ xxx
   font-family: NewsCycle, "Nimbus Sans L", FreeSans, Geneva, Helvetica, Calibri, sans-serif;
   color: black;
 }
-a, a.visited, a:hover {
-  text-decoration: underline;
-}
 ul, li {
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
 /* 
 --------------------------------------------------------------
@@ -97,7 +96,7 @@ C O L L E C T I O N S
   list-style: none;
   margin-top: 5px;
   font-family: NewsCycle, sans;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   text-decoration: none;
 }
@@ -166,20 +165,40 @@ h6 {
 .text-collection-box {
   float: left;
   margin-top: 15px;
-  padding-right: 20px;
-  width: 300px;
+  width: 280px;
   height: 400px;
-  padding-right: 20px;
+  padding: 10px;
   overflow: auto;
   background-color: #ffccaa;
-  margin-left: 5px;
-  margin-right: 5 px;
+  margin-right: 20px;
 }
-#texts h1 {
+#all-text-box {
+  position: relative;
+  width: 90%;
+}
+#titre-box {
+  position: absolute;
+  width: 250px;
+  background-color: #dcd7d7;
+  padding: 10px;
+  margin-left: 15px;
+}
+#text-box {
+  position: relative;
+  padding: 10px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: auto;
+}
+.text-title {
   text-transform: uppercase;
   font-size: 15px;
   font-family: NewsCycle, sans;
-  color: blue;
+  letter-spacing: 0.05em;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .text-author {
   font-family: NewsCycle, sans;
@@ -192,10 +211,49 @@ h6 {
 .text-content {
   font-family: Quattro, serif;
   font-size: 18px;
+  line-height: 23px;
+}
+.text-content a:link {
+  font-family: Quattro, serif;
+  color: #ff8080;
+}
+.text-content-collec {
+  margin-top: 15px;
+  font-family: Quattro, serif;
+  font-size: 18px;
+  line-height: 23px;
+}
+.thread-links {
+  font-family: Quattro, serif;
+  background-image: url('/images/fil.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+  text-decoration: none;
 }
 .text-tag-item {
   font-family: NewsCycle, sans;
   font-size: 15px;
   text-align: center;
   text-decoration: none;
+}
+/* 
+*-----------------------------------------------------------
+ T A G S   I N D E X
+ --------------------------------------------------------------
+ */#tags-index-box {
+  position: relative;
+  padding: 10px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: auto;
+}
+.list-letter {
+  font-family: Quattro, serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  text-align: center;
 }
