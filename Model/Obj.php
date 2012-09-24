@@ -1,15 +1,17 @@
 <?php
 
+// Obj
 
-class Tag extends AppModel 
+
+class Obj extends AppModel
 {
 	public $hasAndBelongsToMany = array(
-        'Obj' =>
+        'Tag' =>
             array(
-                'className'              => 'Obj',
+                'className'              => 'Tag',
                 'joinTable'              => 'objs_tags',
-                'foreignKey'             => 'tag_id',
-                'associationForeignKey'  => 'obj_id',
+                'foreignKey'             => 'obj_id',
+                'associationForeignKey'  => 'tag_id',
                 'unique'                 => false,
                 'conditions'             => '',
                 'fields'                 => '',
@@ -21,4 +23,5 @@ class Tag extends AppModel
                 'insertQuery'            => ''
             )
     );
+
 }
