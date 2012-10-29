@@ -53,8 +53,8 @@ function new_tag(e)
 //         console.log(data);
         if(data.result)
         {
-            tags[data.tag.name] = data.tag.id;
-            var nt = $('<div class="tag_value tag_selected">'+data.tag.tag_name+'</div>');
+            tags[data.tag.tag_name] = data.tag.id;
+            var nt = $('<div class="tag_value">'+data.tag.tag_name+'</div>');
             $('#select_tag_box').append(nt);
             nt.on('click', toggle_tag);
             toggle_tag.apply(nt, []);
