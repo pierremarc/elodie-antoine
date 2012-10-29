@@ -17,6 +17,7 @@ foreach($tags as $t)
 <?php
 
 $this->Html->script('jquery', array('inline' => false));
+$this->Html->script('jquery-ui-datepicker', array('inline' => false));
 $this->Html->script('ao', array('inline' => false));
 
 echo '
@@ -25,7 +26,8 @@ echo '
 
 echo $this->Form->create('Obj', array('enctype' => "multipart/form-data"));
 echo '
-<span id="ObjTitleLabel">Title: </span><input type="text" name="data[Obj][title]" id="ObjTitle" value="'.$Obj['Obj']['title'].'" />
+<div id="obj-title-box"><span id="ObjTitleLabel">Title: </span><input type="text" name="data[Obj][title]" id="ObjTitle" value="'.$Obj['Obj']['title'].'" /></div>
+<div><span id="ObjPubLabel">Pub Date: </span><input type="text" name="data[Obj][published]" id="ObjPublished" value="'.$Obj['Obj']['published'].'" /></div>
 ';
 
 echo '
@@ -57,11 +59,11 @@ echo '
 echo '  
 <div id="form_fragment_text" class="form_fragment">
 ';
-echo $this->Form->input('text_author', array('label'=>'Author'));
+echo $this->Form->input('text_author', array('label'=>'Author', 'default'=>$Obj['Obj']['text_author']));
 echo '
 <div id="form-text-content-label">Content</div>
 ';
-echo $this->Form->input('text_content', array('label'=>''));
+echo $this->Form->input('text_content', array('label'=>'', 'default'=>$Obj['Obj']['text_content']));
 echo '  
 </div>';
 echo '
@@ -113,7 +115,7 @@ echo '<div id="tag_box">
 //echo $this->Form->input('Tag.0.name', array('label'=>'Etiquette: '));
 
 
-echo '<input type="hidden" name="data[Obj][obj_type]" id="obj_type" />';
+echo '<input type="hidden" name="data[Obj][obj_type]" id="obj_type" value="'.$Obj['Obj']['obj_type'].'"/>';
 echo $this->Form->end('Save Object',array('id'=>'save_button'));
 
 ?>

@@ -1,4 +1,6 @@
-<?php // File: /app/View/Objs/add.ctp ?>
+<?php // File: /app/View/Objs/add.ctp 
+
+?>
 
 <script>
 $(document).ready(function(){
@@ -17,6 +19,7 @@ foreach($tags as $t)
 <?php
 
 $this->Html->script('jquery', array('inline' => false));
+$this->Html->script('jquery-ui-datepicker', array('inline' => false));
 $this->Html->script('ao', array('inline' => false));
 
 echo '
@@ -25,7 +28,8 @@ echo '
 
 echo $this->Form->create('Obj', array('enctype' => "multipart/form-data"));
 echo '
-<span id="ObjTitleLabel">Title: </span><input type="text" name="data[Obj][title]" id="ObjTitle" />
+<div id="obj-title-box"><span id="ObjTitleLabel">Title: </span><input type="text" name="data[Obj][title]" id="ObjTitle" /></div>
+<div><span id="ObjPubLabel">Pub Date: </span><input type="text" name="data[Obj][published]" id="ObjPublished" /></div>
 ';
 
 echo '

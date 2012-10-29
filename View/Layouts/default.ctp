@@ -7,11 +7,17 @@
 	</title>
 	<?php
         session_start();
-        if (!isset($_SESSION['history'])) 
+//         debug($_SESSION['history']);
+        if (!isset($_SESSION['history']) /*|| (isset($_GET['ch']) && $_GET['ch'] == '1')*/) 
         {
-            $_SESSION['history'] = array($ref);
+            $_SESSION['history'] = array();
+        }
+        if(isset($ref))
+        {
+            array_unshift($_SESSION['history'], $ref);
         }
         echo $this->Html->css('fistuline');
+        echo $this->Html->css('date-picker');
         
         $this->Html->script('jquery', array('inline' => false));
         $this->Html->script('geom', array('inline' => false));
@@ -28,7 +34,7 @@
     </div>
     <div id="navig-box">
     <?php 
-    $h_len = min(5, count($_SESSION['history']));
+    $h_len = count($_SESSION['history']);
     for($i = 0; $i < $h_len; $i++)
     {
         echo '<a class="navig-link" href="'
@@ -45,24 +51,26 @@
 </html>
 
 <?php
-if(isset($href))
-{
-    if(count($_SESSION['history']) == 0)
-        array_unshift($_SESSION['history'], $ref);
-    else
-    {
-        $insert = true;
-            foreach($_SESSION['history'] as $h)
-            {
-                if($h['url'] === $ref['url'])
-                {
-                    $insert = false;
-                    break;
-                }
-            }
-            if($insert)
-                array_unshift($_SESSION['history'], $ref);
-        
-    }
-}
+// debug($ref);
+// if(isset($ref))
+// {
+// //     if(count($_SESSION['history']) == 0)
+// //         array_unshift($_SESSION['history'], $ref);
+// //     else
+//     {
+//         $insert = true;
+// //         foreach($_SESSION['history'] as $h)
+// //         {
+// //             if($h['url'] === $ref['url'])
+// //             {
+// //                 $insert = false;
+// //                 break;
+// //             }
+// //         }
+// //         debug($insert);
+//         if($insert)
+//             array_unshift($_SESSION['history'], $ref);
+//         
+//     }
+// }
 ?>

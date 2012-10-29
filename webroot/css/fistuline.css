@@ -62,21 +62,26 @@ C O L L E C T I O N S
 }
 #navig-box {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 95%;
-  text-align: center;
+  left: 174px;
+/*   margin-right: auto; */
+  width: 800px;
+  text-align: left;
+  overflow:hidden;
+  height: 24px;
+  background-color:white;
+  opacity:.5;
 }
 .navig-link {
   font-family: Quattro, serif;
   font-size: 15px;
-  color: #999999;
+  color: #333;
   text-decoration: none;
 }
 /* Etiquettes
  -------------------------------------------------------------- */
 #etiquettes {
   position: absolute;
+  z-index:10;
   right: 30px;
   top: 60px;
   width: 250px;
@@ -153,6 +158,37 @@ a:hover span {
 .pict-cartel a:link a:hover {
   text-decoration: none;
 }
+
+#image-info-box{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    width:300px;
+    background-color:white;
+    opacity:.7;
+    padding:4px;
+}
+
+#image-info-title{
+    text-transform:uppercase;
+    font-size:14pt;
+    font-family: NewsCycle;
+}
+#image-info-published{
+    font-size:9pt;
+    font-family: NewsCycle;
+/*     text-align:right;    */
+}
+#image-info-description-box{
+    margin-top:15px;
+}
+#image-info-description{
+    font-size:11pt;
+    font-family: Quattro;
+}
+
+
+
 /* 
 --------------------------------------------------------------
 T E X T E S
@@ -177,20 +213,37 @@ position:absolute;
 /*   margin-right: 20px; */
 }
 #all-text-box {
-  position: relative;
+  position: absolute;
+  top:120px;
   width: 90%;
 }
-#titre-box {
-  position: absolute;
+#titre-box-main {
+  position: relative;
   width: 250px;
+  top:0;
   background-color: #dcd7d7;
   padding: 10px;
   margin-left: 15px;
 }
+
+.titre-box{
+    padding: 10px;
+    margin-left: 15px;
+    width: 250px;
+}
+
+.text-title a{
+    text-decoration:none;
+}
+.text-title a:hover{
+    border-bottom:1px solid;
+}
+
 #text-box {
-  position: relative;
-  padding: 10px;
-  margin-top: 50px;
+  position: absolute;
+/*   padding: 10px; */
+  top: 0;
+  left:370px;
   margin-left: auto;
   margin-right: auto;
   width: 600px;
@@ -293,7 +346,9 @@ label {
     margin: 24px;
     font-family:sans-serif;
 }
-
+#obj-title-box{
+    margin: 0 0 12px 0;
+}
 #ObjTitleLabel{
     font-size:24pt;
     font-weight:bold;
@@ -303,6 +358,16 @@ label {
     width:80%;
     font-size:24pt;
     padding:6pt;
+}
+#ObjPubLabel{
+    font-size:14pt;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+#ObjPublished{
+    width:250px;
+    font-size:18pt;
+    padding:3pt;
 }
 
 #form_specie{

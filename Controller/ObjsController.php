@@ -26,9 +26,8 @@ class ObjsController extends AppController
 		$this->set('tags', $this->Obj->data['Tag']);
 		if($obj['obj_type'] == TEXT_T)
 		{
-// 			debug($obj);
-// 			debug($this->Obj->data['Tag']);
-			$this->set('text', $obj);
+            $this->set('text', $obj);
+            $this->set('texts', $this->Obj->find('all', array('conditions' => array('obj_type'=>TEXT_T))));
 			$this->viewPath = 'Texts';
 		}
 		else

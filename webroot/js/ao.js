@@ -79,12 +79,21 @@ function mark_img_update(evt){
             
 $(document).ready(function(){
 	
-	$('#form_fragment_text').hide();
-	$('#obj_type').val('image_t');
 		
 	$('.obj_selector').on('click', toggle_obj);
     $('.tag_value').on('click', toggle_tag);
 	$('#new_tag').on('click', new_tag);
     
     $('#ObjImageFile').on('change', mark_img_update);
+    $('#ObjPublished').datepicker({ dateFormat: "yy-mm-dd" });
+    
+    
+    if($('#obj_type').val() === 'image_t')
+    {
+        $('#obj_image').click();
+    }
+    else
+    {
+        $('#obj_text').click();
+    }
 });

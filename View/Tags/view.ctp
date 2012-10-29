@@ -5,12 +5,12 @@ $(document).ready(function(evt){
     function layout_pieces(){
         var piece = $('#pieces');
         var pw = piece.width();
-        console.log('PW '+pw);
+//         console.log('PW '+pw);
     //     var ph = piece.height();
         var cur_x = piece.offset().left;
         var cur_y = new Array();
         var right = pw + cur_x;
-        console.log('R '+right);
+//         console.log('R '+right);
         cur_y.push(piece.offset().top);
         var blocks = $('.piece-block');
         var bcount = blocks.length;
@@ -31,14 +31,14 @@ $(document).ready(function(evt){
                     cur_y.push(piece.offset().top);
                 }
             }
-            console.log('C '+cur_col +'; Y '+cur_y[cur_col] + '; H '+e.outerHeight() );
+//             console.log('C '+cur_col +'; Y '+cur_y[cur_col] + '; H '+e.outerHeight() );
             e.css({
                 top:(cur_y[cur_col] + gap) + 'px',
                 left:(cur_x + gap) +'px'
             });
             cur_y[cur_col] = cur_y[cur_col] + gap + e.outerHeight();
             cur_x = cur_x + gap + e.outerWidth();
-            console.log('=> Y '+cur_y[cur_col] );
+//             console.log('=> Y '+cur_y[cur_col] );
         });
     }
     $(window).on('resize', layout_pieces);
@@ -57,7 +57,7 @@ foreach($Objs as $obj)
     {
         echo '
         <div id="o_'.$obj['id'].'" class="text-collection-box piece-block">
-        <h1 class="text-title">'.$obj['title'].'</h1>
+        <h1 class="text-title"><a href="/objs/view/'.$obj['id'].'">'.$obj['title'].'</a></h1>
         <div class="text-author"> '.$obj['text_author'].', '.$obj['published'].'</div>
         <div class="text-content-collec">'.$obj['text_content'].'</div>
         </div>';

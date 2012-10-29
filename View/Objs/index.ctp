@@ -60,7 +60,7 @@ table{
 		$sep = ''; 
 		foreach($image['Tag'] as $tag)
 		{
-			echo $sep.'<span class="tag">'.$tag['tag_name'].'</span> ';
+            echo $sep.'<span class="tag"><a href="/tags/view/'.$tag['id'].'">'.$tag['tag_name'].'</a></span> ';
 			$sep = ', ';
 		}
         ?>
@@ -101,7 +101,7 @@ table{
 		$sep = ''; 
 		foreach($text['Tag'] as $tag)
 		{
-            echo $sep.'<span class="tag">'.$tag['tag_name'].'</span> ';
+            echo $sep.'<span class="tag"><a href="/tags/view/'.$tag['id'].'">'.$tag['tag_name'].'</a></span> ';
 			$sep = ', ';
 		}
         ?>

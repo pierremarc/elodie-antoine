@@ -13,5 +13,6 @@ class TextsController extends AppController
 	{
 		$this->Text->id = $id;
 		$this->set('text', $this->Text->read());
+		$this->set('texts', $this->Text->find());
 	}
 }

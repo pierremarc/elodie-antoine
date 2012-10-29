@@ -29,12 +29,15 @@ $(document).ready(function()
 });
 </script>
 
-<canvas id="canvas" style="position:absolute;top:0;left:0;"/>
-<h1><?php echo $image['title'] ?></h1>
-
-
-<div class="text-created"><?php echo $image['published']; ?></div>
-
+<canvas id="canvas" style="position:absolute;top:0;left:0;" ></canvas>
+<div id="image-info-box">
+<div id="image-info-title"><?php echo $image['title'] ?></div>
+<div id="image-info-published"><?php echo $image['published']; ?></div>
+<div id="image-info-description-box">
+    <div id="image-info-description"><?php echo $image['image_description']; ?></div>
+<!--     <div id="image-info-description-close"></div> -->
+</div>
+</div>
 <!-- <div id="image"><img src="/<?php echo IMAGES_URL.$image['image_file']; ?>" /></div> -->
 
 <div id="etiquettes">
