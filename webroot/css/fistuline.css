@@ -20,7 +20,7 @@ xxx
 * {
   background: transparent;
   border: 0px;
-  /* 	margin: 0; */
+  	margin: 0;
 
   padding: 0px;
   font-family: NewsCycle, "Nimbus Sans L", FreeSans, Geneva, Helvetica, Calibri, sans-serif;
@@ -40,7 +40,8 @@ C O L L E C T I O N S
 /* Bandeau
 -------------------------------------------------------------- */
 #header {
-  position: relative;
+  position: absolute;
+  z-index:100;
   margin-top: 30px;
   margin-left: 30px;
   margin-right: 30px;
@@ -111,18 +112,20 @@ C O L L E C T I O N S
 /* Images
 -------------------------------------------------------------- */
 #pieces {
-  position: relative;
-  margin-top: 15px;
-  margin-left: 15px;
+  position: absolute;
+  top: 80px;
+  left: 15px;
   width: 80%;
 }
 .pict-box {
-  float: left;
-  margin-top: 15px;
-  padding-right: 20px;
+/*   float: left; */
+/*   margin-top: 15px; */
+width:320px;
+position:absolute;
+/*   padding-right: 20px; */
 }
 .pict-img {
-  width: 300px;
+  width: 320px;
 }
 a span {
   display: none;
@@ -163,14 +166,15 @@ h6 {
   font-weight: normal;
 }
 .text-collection-box {
-  float: left;
-  margin-top: 15px;
-  width: 280px;
+/*  float: left;
+ margin-top: 15px*;*/
+position:absolute;
+  width: 300px;
   height: 400px;
   padding: 10px;
   overflow: auto;
   background-color: #ffccaa;
-  margin-right: 20px;
+/*   margin-right: 20px; */
 }
 #all-text-box {
   position: relative;
@@ -256,4 +260,176 @@ h6 {
   margin-top: 30px;
   margin-bottom: 5px;
   text-align: center;
+}
+
+
+/*********************
+ * Admin
+ * *******************/
+input[type=text]{
+    border:2px solid #888;
+    color:#7D7D7D;
+}
+input[type=text]:focus{
+/*     border:2px solid #888; */
+    outline:none;
+    background-color:#F7F7F7;
+}
+label { 
+    vertical-align:top; 
+}
+.obj_selector, .add_tag{
+    cursor:pointer;
+}
+.form-new-title{
+    font-family:monospace;
+    font-size:24pt;
+    color:#CC0000;
+    padding:24px;
+    border-bottom:2px solid;
+}
+
+#ObjAddForm, #ObjEditForm{
+    margin: 24px;
+    font-family:sans-serif;
+}
+
+#ObjTitleLabel{
+    font-size:24pt;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+#ObjTitle{
+    width:80%;
+    font-size:24pt;
+    padding:6pt;
+}
+
+#form_specie{
+    margin:24px 0;
+    padding-bottom:12px;
+    border-bottom:2px solid #888;
+   /* border-left:2px solid #888;
+    border-right:2px solid #888;*/
+}
+
+#form-selector{
+    border-bottom:2px solid #888;
+    margin-bottom:12px;
+}
+
+.obj_selector{
+    display:inline-block;
+    border-top:2px solid #888;
+    border-left:2px solid #888;
+    border-right:2px solid #888;
+    padding:4px;
+}
+
+.obj_selected{
+/*     background-color:#F7F7F7; */
+    border-bottom:2px solid #fff;
+    margin-bottom:-2px;
+    font-weight:bold;
+}
+#form-image-input-block{
+    margin:24px 0 12px 0;
+}
+#form-image-label{
+    font-size:12pt;
+    font-style:italic;
+}
+
+#ObjImageFile{
+    font-size:14pt;
+}
+
+#form-image-desc-label{
+    font-size:12pt;
+    font-style:italic;
+}
+
+textarea{
+    font-size:14pt;
+    color:#7D7D7D;
+    width:100%;
+    height:162px;
+    border:2px solid #888;
+    padding:3px;
+    margin-bottom:24px;
+}
+textarea:focus{
+    outline:none;
+    background-color:#F7F7F7;
+}
+
+#ObjTextAuthor{
+    width:100%;
+    font-size:14pt;
+}
+label{
+    font-size:12pt;
+    font-style:italic;
+}
+#form-text-content-label{
+    font-size:12pt;
+    font-style:italic;
+}
+
+#new_tag_val{
+    width: 300px;
+    font-size: 14pt;
+}
+
+#new_tag{
+    cursor:pointer;
+    margin-left:1em;
+    font-size:14pt;
+    font-weight:bold;
+    border: 2px solid #888;
+    background-color:#F7F7F7;
+    padding:0 1em;
+}
+#new_tag:hover{
+    border: 2px solid #CC0000;
+}
+
+.submit{
+    text-align:right;
+}
+
+.submit > input{
+    cursor:pointer;
+    margin-left:1em;
+    font-size:14pt;
+    font-weight:bold;
+    border: 2px solid #888;
+    background-color:#F7F7F7;
+    padding:0 1em; 
+}
+
+.submit > input:hover{
+    border: 2px solid #CC0000;
+}
+
+.form-tag{
+    display:inline-block;
+}
+
+.tag_value{
+    cursor:pointer;
+    display:inline-block;
+    font-size:18pt;
+    margin: 4px 6px;
+}
+
+.tag_selected{
+    font-weight:bold;
+    color:#CC0000;
+    border-bottom:1px solid;
+}
+
+#labels_title{
+    font-size:12pt;
+    font-style:italic;
 }

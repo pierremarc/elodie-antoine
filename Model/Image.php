@@ -6,7 +6,7 @@ class Image extends AppModel
 	public $hasMany = array(
 		'Tag' => array(
 		'className'  => 'Tag',
-		'order'      => 'Tag.name DESC'
+		'order'      => 'Tag.tag_name DESC'
 		)
 	);
 }

@@ -12,7 +12,7 @@ class Obj extends AppModel
                 'joinTable'              => 'objs_tags',
                 'foreignKey'             => 'obj_id',
                 'associationForeignKey'  => 'tag_id',
-                'unique'                 => false,
+                'unique'                 => true,
                 'conditions'             => '',
                 'fields'                 => '',
                 'order'                  => '',

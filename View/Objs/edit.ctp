@@ -1,4 +1,4 @@
-<?php // File: /app/View/Objs/add.ctp ?>
+<?php // File: /app/View/Objs/edit.ctp ?>
 
 <script>
 $(document).ready(function(){
@@ -20,12 +20,12 @@ $this->Html->script('jquery', array('inline' => false));
 $this->Html->script('ao', array('inline' => false));
 
 echo '
-<h1 class="form-new-title">New Object Form</h1>
+<h1 class="form-new-title">Edit Object Form</h1>
 ';
 
 echo $this->Form->create('Obj', array('enctype' => "multipart/form-data"));
 echo '
-<span id="ObjTitleLabel">Title: </span><input type="text" name="data[Obj][title]" id="ObjTitle" />
+<span id="ObjTitleLabel">Title: </span><input type="text" name="data[Obj][title]" id="ObjTitle" value="'.$Obj['Obj']['title'].'" />
 ';
 
 echo '
@@ -40,6 +40,7 @@ echo '
 
 echo '
 <div id="form_fragment_image" class="form_fragment">
+<img width="132" src="/'.IMAGES_URL.$Obj['Obj']['image_file'].'" style="float:right" />
 <div id="form-image-input-block">
 <span id="form-image-label">Select Image: </span>
 ';
@@ -47,7 +48,7 @@ echo $this->Form->file('image_file', array('label'=>'Image File: '));
 echo '</div>
 <div id="form-image-desc-label">Description</div>
 ';
-echo $this->Form->input('image_description', array('label'=>''));
+echo $this->Form->input('image_description', array('label'=>'', 'default'=>$Obj['Obj']['image_description']));
 echo '
 </div>
 ';
@@ -68,22 +69,45 @@ echo '
 
 
 $taglist = '';
+$h_tags = array();
 
 foreach($tags as $t)
 {
-	
-	$taglist .= '
-	
-		<div class="tag_value">'.$t['Tag']['tag_name'].'</div>
-	'."\n";
+    $tid = $t['Tag']['id'];
+    $attached = false;
+    foreach($Obj['Tag'] as $ot)
+    {
+        if($ot['id'] == $tid)
+        {
+            $attached = true;
+            break;
+        }
+    }
+    if($attached)
+    {
+        $taglist .= '
+        <div class="tag_value tag_selected">'.$t['Tag']['tag_name'].'</div>
+        ';
+        $htag = '<input class="input_tag_selected"  type="hidden" name="data[Tag][Tag]['.count($h_tags).']" value="'.$tid.'" />';
+        array_push($h_tags, $htag);
+    }
+    else
+    {
+        $taglist .= '
+            <div class="tag_value">'.$t['Tag']['tag_name'].'</div>
+        ';
+	}
 }
+
+
+
 echo '<div id="tag_box">
 <div id="labels_title">Etiquettes</div>
 <div id="select_tag_box">
 '.$taglist.'
 </div>
 <div><input type="text" id="new_tag_val" /><span id="new_tag">Add</span></div>
-<div id="h_tags"></div>
+<div id="h_tags">'.implode('',$h_tags).'</div>
 
 ';
 //echo $this->Form->input('Tag.0.name', array('label'=>'Etiquette: '));

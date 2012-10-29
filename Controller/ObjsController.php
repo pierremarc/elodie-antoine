@@ -18,17 +18,23 @@ class ObjsController extends AppController
 	public function view($id = null) 
 	{
 		$this->Obj->id = $id;
-		$obj = $this->Obj->read();
-		if($obj->obj_type == text_t)
+		$this->Obj->read();
+		
+		$this->set('ref', array('url'=>'/objs/view/'.$id, 'name'=>$this->Obj->data['Obj']['title']));
+		
+		$obj = $this->Obj->data['Obj'];
+		$this->set('tags', $this->Obj->data['Tag']);
+		if($obj['obj_type'] == TEXT_T)
 		{
+// 			debug($obj);
+// 			debug($this->Obj->data['Tag']);
 			$this->set('text', $obj);
-			$this -> viewPath = 'Texts';
-// 			$this -> render('view');
+			$this->viewPath = 'Texts';
 		}
 		else
 		{
 			$this->set('image', $obj);
-			$this -> viewPath = 'Images';
+			$this->viewPath = 'Images';
 		}
 	}
 	
@@ -58,28 +64,20 @@ class ObjsController extends AppController
 			if($rw_obj['Obj']['obj_type'] == IMAGE_T)
 			{
 				$image = $this->save_image($img_obj);
-// 				debug(var_dump($image));
 				if($image)
 				{
-// 					debug('<div>MOVED FILE TO '.IMAGES.$image.'</div>');
 					$rw_obj['Obj']['image_file'] = $image;
-				}
-				else
-				{
-// 					debug('<div>COULD NOT MOVE FILE</div>');
+					$isize = getimagesize(IMAGES.$image);
+					$rw_obj['Obj']['image_width'] = $isize[0];
+					$rw_obj['Obj']['image_height'] = $isize[1];
 				}
 			}
 			
-			debug($rw_obj);
 			$result = $this->Obj->saveAll($rw_obj);
 			if($result) 
 			{
-// 				if($rw_obj['Tag'] && count($rw_obj['Tag']) > 0)
-// 				{
-// 					$this->Obj.
-// 				}
 				$this->Session->setFlash('Your Object has been saved.');
-// 				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index'));
 			} 
 			else 
 			{
@@ -91,4 +89,55 @@ class ObjsController extends AppController
 			$this->set('tags', $this->Tag->find('all'));
 		}
 	}
+	
+    public function edit($id = null) 
+    {
+        $this->Obj->id = $id;
+        if ($this->request->is('get')) 
+        {
+            $this->loadModel('Tag');
+            $this->set('Obj', $this->Obj->read());
+            $this->set('tags', $this->Tag->find('all'));
+        } 
+        else 
+        {
+            $old_obj = $this->Obj->read();
+            $rw_obj = $this->request->data;
+            $img_obj = $rw_obj['Obj']['image_file'];
+            $rw_obj['Obj']['image_file'] = '';
+            
+            if($rw_obj['Obj']['obj_type'] == IMAGE_T)
+            {
+                if($this->request->data['img_update'] == '1')
+                {
+                    $image = $this->save_image($img_obj);
+                    if($image)
+                    {
+                        $rw_obj['Obj']['image_file'] = $image;
+                        $isize = getimagesize(IMAGES.$image);
+                        $rw_obj['Obj']['image_width'] = $isize[0];
+                        $rw_obj['Obj']['image_height'] = $isize[1];
+                    }
+                }
+                else
+                {
+                    $rw_obj['Obj']['image_file'] = $old_obj['Obj']['image_file'];
+                    $rw_obj['Obj']['image_width'] = $old_obj['Obj']['image_width'];
+                    $rw_obj['Obj']['image_height'] = $old_obj['Obj']['image_height'];
+                }
+            }
+            $rw_obj['Obj']['id'] = $old_obj['Obj']['id'];
+//             debug($rw_obj);
+            $result = $this->Obj->save($rw_obj);
+            if($result) 
+            {
+                $this->Session->setFlash('Your Object has been saved.');
+                $this->redirect(array('action' => 'index'));
+            } 
+            else 
+            {
+                $this->Session->setFlash('Unable to add your object.');
+            }
+        }
+    }
 }

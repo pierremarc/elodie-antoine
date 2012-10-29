@@ -1,5 +1,9 @@
 <?php // File: /app/View/Objs/index.ctp ?>
-
+<script>
+$(document).ready(function(){
+    $('#header').hide();
+    });
+</script>
 <style>
 
 th{
@@ -31,6 +35,7 @@ table{
         <th>Id</th>
         <th>Title</th>
         <th>Created</th>
+        <th>Tags</th>
         <th>Thumbnail</th>
     </tr>
 
@@ -39,15 +44,28 @@ table{
     
     <?php 
     foreach ($images as $image): 
-// 	    var_dump($image);
+// 	    debug($image);
 	?>
     <tr>
-        <td><?php echo $image['Obj']['id']; ?></td>
+        <td><?php 
+//         echo $image['Obj']['id']; 
+        echo $this->Html->link($image['Obj']['id'], array('controller' => 'objs', 'action' => 'edit', $image['Obj']['id']));
+        ?></td>
         <td>
-            <?php echo $this->Html->link($image['Obj']['title'], array('controller' => '$image', 'action' => 'view', $image['Obj']['id'])); ?>
+            <?php echo $this->Html->link($image['Obj']['title'], array('controller' => 'objs', 'action' => 'view', $image['Obj']['id'])); ?>
         </td>
         <td><?php echo $image['Obj']['published']; ?></td>
-        <td><img class="thumbnail" src="<?php echo IMAGES_URL.$image['Obj']['image_file']; ?>" /></td>
+             <td>
+        <?php
+		$sep = ''; 
+		foreach($image['Tag'] as $tag)
+		{
+			echo $sep.'<span class="tag">'.$tag['tag_name'].'</span> ';
+			$sep = ', ';
+		}
+        ?>
+        </td>
+        <td><img class="thumbnail" src="/<?php echo IMAGES_URL.$image['Obj']['image_file']; ?>" /></td>
     </tr>
     <?php endforeach; ?>
     
@@ -60,6 +78,7 @@ table{
         <th>Id</th>
         <th>Title</th>
         <th>Created</th>
+        <th>Tags</th>
     </tr>
 
     <!-- Here is where we loop through our $texts array, printing out text info -->
@@ -69,11 +88,24 @@ table{
     foreach ($texts as $text): 
 	?>
     <tr>
-        <td><?php echo $text['Obj']['id']; ?></td>
+        <td><?php 
+        //         echo $text['Obj']['id']; 
+        echo $this->Html->link($text['Obj']['id'], array('controller' => 'objs', 'action' => 'edit', $text['Obj']['id']));
+        ?></td>
         <td>
-            <?php echo $this->Html->link($text['Obj']['title'], array('controller' => 'texts', 'action' => 'view', $text['Obj']['id'])); ?>
+            <?php echo $this->Html->link($text['Obj']['title'], array('controller' => 'objs', 'action' => 'view', $text['Obj']['id'])); ?>
         </td>
         <td><?php echo $text['Obj']['published']; ?></td>
+        <td>
+        <?php
+		$sep = ''; 
+		foreach($text['Tag'] as $tag)
+		{
+            echo $sep.'<span class="tag">'.$tag['tag_name'].'</span> ';
+			$sep = ', ';
+		}
+        ?>
+        </td>
     </tr>
     <?php endforeach; ?>
     

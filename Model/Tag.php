@@ -10,7 +10,7 @@ class Tag extends AppModel
                 'joinTable'              => 'objs_tags',
                 'foreignKey'             => 'tag_id',
                 'associationForeignKey'  => 'obj_id',
-                'unique'                 => false,
+                'unique'                 => true,
                 'conditions'             => '',
                 'fields'                 => '',
                 'order'                  => '',
