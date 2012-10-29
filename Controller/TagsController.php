@@ -8,7 +8,6 @@ class TagsController extends AppController
 	public function index() 
 	{
 		$this->set('tags', $this->Tag->find('all'));
-// 		$this->set('_serialize', array('tags'));
 	}
 	
 	public function view($id = null) 

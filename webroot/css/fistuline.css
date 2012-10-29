@@ -298,13 +298,16 @@ position:absolute;
  T A G S   I N D E X
  --------------------------------------------------------------
  */#tags-index-box {
-  position: relative;
+  position: absolute;
   padding: 10px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  top: 150px;
+  left: 150px;
   width: 80%;
-  height: auto;
+}
+
+.tags-col{
+    width:124px;
+    float:left;
 }
 .list-letter {
   font-family: Quattro, serif;
@@ -314,7 +317,9 @@ position:absolute;
   margin-bottom: 5px;
   text-align: center;
 }
-
+.tag-box{
+    text-align:center;
+}
 
 /*********************
  * Admin
@@ -497,4 +502,10 @@ label{
 #labels_title{
     font-size:12pt;
     font-style:italic;
+}
+
+.users_form{
+    position:absolute;
+    top:200px;
+    left:200px;
 }

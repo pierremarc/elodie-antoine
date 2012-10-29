@@ -93,7 +93,7 @@ echo '<div id="tag_box">
 //echo $this->Form->input('Tag.0.name', array('label'=>'Etiquette: '));
 
 
-echo '<input type="hidden" name="data[Obj][obj_type]" id="obj_type" />';
+echo '<input type="hidden" name="data[Obj][obj_type]" id="obj_type" value="image_t" />';
 echo $this->Form->end('Save Object',array('id'=>'save_button'));
 
 ?>
