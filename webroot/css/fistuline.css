@@ -68,14 +68,19 @@ C O L L E C T I O N S
   text-align: left;
   overflow:hidden;
   height: 24px;
-  background-color:white;
+ 
+}
+#navig-box span{
+     background-color:white;
   opacity:.5;
+  padding: 0 6px;
 }
 .navig-link {
   font-family: Quattro, serif;
   font-size: 15px;
   color: #333;
   text-decoration: none;
+  line-height: 24px;
 }
 /* Etiquettes
  -------------------------------------------------------------- */

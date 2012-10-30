@@ -33,6 +33,7 @@
         <a class="name-link" href="contact.html">Elodie Antoine</a>
     </div>
     <div id="navig-box">
+    <span>
     <?php 
     $h_len = count($_SESSION['history']);
     for($i = 0; $i < $h_len; $i++)
@@ -42,8 +43,8 @@
             .$_SESSION['history'][$i]['name'].' → 
             </a>';
     }
-
     ?>
+    </span>
     </div>
 </div>
 	<?php echo $this->fetch('content'); ?>

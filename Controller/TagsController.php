@@ -14,23 +14,26 @@ class TagsController extends AppController
 	{
 		$this->Tag->id = $id;
 		$tag = $this->Tag->read();
+		$this->loadModel('Obj');
 		
 		$this->set('ref', array('url'=>'/tags/view/'.$id, 'name'=>$tag['Tag']['tag_name']));
 		
 		$tag_name = $tag['Tag']['tag_name'];
 		$this->set('Tag', $tag['Tag']);
-// 		debug($tag);
+// 		debug($tag['Obj']);
 		$this->set('Objs', $tag['Obj']);
 		$tags = array();
 		foreach($tag['Obj'] as $o)
 		{
-//             $o = $vo->read();
-            foreach($o['ObjsTag'] as $tid)
+            $oo = $this->Obj->read(null, $o['id']);
+//             debug($oo);
+            foreach($oo['Tag'] as $trel)
             {
+                $tid = $trel['id'];
                 if(!array_key_exists($tid, $tags))
                 {
-                    $this->Tag->id = $tid;
-                    $ot = $this->Tag->read();
+                    $ot = $this->Tag->read(null, $tid);
+//                     debug($ot ? $ot : $tid);
                     if($ot['Tag']['tag_name'] !== $tag_name)
                         $tags[$tid] = $ot['Tag'];
                 }
