@@ -16,7 +16,7 @@
         {
             array_unshift($_SESSION['history'], $ref);
         }
-        if(count($_SESSION['history']) > 3)
+        if(count($_SESSION['history']) > 4)
         {
             array_pop($_SESSION['history']);
         }

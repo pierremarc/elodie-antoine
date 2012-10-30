@@ -97,6 +97,7 @@ foreach($Tags as $t)
     echo '<li><a href="/tags/view/'.$t['id'].'">'.$t['tag_name'].'</a></li>';
 }
 ?>
+<li id="all-etiquettes"><a href="/tags">tags index</a></li>
 </ul>
 
 </div>

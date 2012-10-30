@@ -136,7 +136,7 @@ C O L L E C T I O N S
 -------------------------------------------------------------- */
 #pieces {
   position: absolute;
-  top: 80px;
+  top: 50px;
   left: 15px;
   width: 80%;
 }
@@ -164,9 +164,8 @@ a:hover span {
 }
 .pict-cartel {
   font-family: NewsCycle, sans;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+/*  text-transform: uppercase;*/
   padding-left: 5px;
   text-decoration: none;
 }
@@ -313,7 +312,16 @@ position:absolute;
 *-----------------------------------------------------------
  T A G S   I N D E X
  --------------------------------------------------------------
- */#tags-index-box {
+ */
+
+#all-etiquettes{
+    padding-top:1em;
+}
+#all-etiquettes a{
+    border-top:2px solid rgb(255, 128, 128);
+}
+
+#tags-index-box {
   position: absolute;
   padding: 10px;
   top: 150px;
