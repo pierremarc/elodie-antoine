@@ -8,13 +8,17 @@
 	<?php
         session_start();
 //         debug($_SESSION['history']);
-        if (!isset($_SESSION['history']) /*|| (isset($_GET['ch']) && $_GET['ch'] == '1')*/) 
+        if (!isset($_SESSION['history']) || isset($_GET['ch']))
         {
             $_SESSION['history'] = array();
         }
         if(isset($ref))
         {
             array_unshift($_SESSION['history'], $ref);
+        }
+        if(count($_SESSION['history']) > 3)
+        {
+            array_pop($_SESSION['history']);
         }
         echo $this->Html->css('fistuline');
         echo $this->Html->css('date-picker');
