@@ -12,6 +12,7 @@ class TagsController extends AppController
 	
 	public function view($id = null) 
 	{
+        $this->helpers[] = 'Image';
 		$this->Tag->id = $id;
 		$tag = $this->Tag->read();
 		$this->loadModel('Obj');

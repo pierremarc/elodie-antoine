@@ -64,15 +64,23 @@ foreach($Objs as $obj)
     }
     else
     {
-        $width = 300;
+        $width = 320;
 //         print_r($obj);
         $height = 300;
         if($obj['image_height'])
+        {
             $height = floor($obj['image_height'] * $width / $obj['image_width']);
+        }
+        $src_image = $this->Image->resize($obj['image_file'], $width, $height, true, 
+        array('alt'=>'Picture of '.$obj['title'], 
+            'title'=>$obj['title'], 
+            'class'=>'pict-img',
+            'width'=>$width,
+            'height'=>$height));
         echo '
         <div id="o_'.$obj['id'].'" class="pict-box piece-block">
         <a href="/objs/view/'.$obj['id'].'">
-            <img class="pict-img" src="/'.IMAGES_URL.$obj['image_file'].'" width="'.$width.'" height="'.$height.'" />
+        '.$src_image.'
             <span class="pict-cartel">'.$obj['title'].'</span>
         </a>
         </div>';
