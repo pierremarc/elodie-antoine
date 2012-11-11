@@ -20,7 +20,7 @@ table{
 }
 
 .thumbnail{
-	width:200px;
+/* 	width:200px; */
 }
 </style>
 
@@ -65,7 +65,27 @@ table{
 		}
         ?>
         </td>
-        <td><img class="thumbnail" src="/<?php echo IMAGES_URL.$image['Obj']['image_file']; ?>" /></td>
+        <td>
+        <?php 
+        //<img class="thumbnail" ... echo IMAGES_URL.$image['Obj']['image_file']
+        {
+            $width = 140;
+            $height = 140;
+            if($image['Obj']['image_height'])
+            {
+                $height = floor($image['Obj']['image_height'] * $width / $image['Obj']['image_width']);
+                }
+                $src_image = $this->Image->resize($image['Obj']['image_file'], $width, $height, true, 
+                array('alt'=>'Picture of '.$image['Obj']['title'], 
+                'title'=>$image['Obj']['title'], 
+                'class'=>'thumbnail',
+                'width'=>$width,
+                'height'=>$height));
+                
+                echo  $src_image;
+                }
+        ?>
+        </td>
     </tr>
     <?php endforeach; ?>
     

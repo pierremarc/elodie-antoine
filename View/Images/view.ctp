@@ -6,7 +6,7 @@ $(document).ready(function()
     var canvas = $('#canvas');
     var ctx =  canvas.get(0).getContext('2d');
    
-    
+    var image_offset = {x:0, y:0};
     function showImage(undefined){
         var ww = $(window).width();
         var wh = $(window).height();
@@ -16,23 +16,62 @@ $(document).ready(function()
         var wr = new Geom.Rect(0,0,ww, wh);
         rr.fitRect(wr, true);
         ctx.drawImage(this, rr.left(), rr.top(), rr.width(), rr.height());
+        image_offset.x = rr.left();
+        image_offset.y = rr.top();
     }
-    
+    var m_start_point = null;
     var image = $('<img />');
     image.on('load', function(e){
         showImage.apply(image[0], []);
         $(window).on('resize', function(evt){
                 showImage.apply(image[0], []);
             });
+            
+            canvas.on('mousedown', function(evt){m_start_point = {x:evt.pageX, y:evt.pageY};});
+            canvas.on('mouseup', function(evt){m_start_point = null;});
+            canvas.on('mouseleave', function(evt){m_start_point = null;});
+            canvas.on('mousemove', function(evt){
+                if(m_start_point == null)
+                {
+                    return;
+                }
+                var deltaX = evt.pageX - m_start_point.x;
+                var deltaY = evt.pageY - m_start_point.y;
+                
+                image_offset.x = image_offset.x + deltaX;
+                image_offset.y = image_offset.y + deltaY;
+                var img = image.get(0);
+                var ww = $(window).width();
+                var wh = $(window).height();
+                var rr = new Geom.Rect(0,0, img.naturalWidth, img.naturalHeight);
+                var wr = new Geom.Rect(0,0,ww, wh);
+                rr.fitRect(wr, true);
+                ctx.drawImage(img, image_offset.x, image_offset.y, rr.width(), rr.height());
+                m_start_point = {x:evt.pageX, y:evt.pageY};
+            });
     });
     image.attr('src', '/<?php echo IMAGES_URL.$image['image_file']; ?>');
 });
 </script>
 
+<?php
+
+$pub_date = new DateTime($image['published']);
+$pdm =  $pub_date->format('m');
+$pdd =  $pub_date->format('d');
+
+$pub_date_str = $pub_date->format('d/m/Y');
+if($pdm === '01' && $pdd === '01')
+{
+    $pub_date_str = $pub_date->format('Y');
+}
+
+?>
+
 <canvas id="canvas" style="position:absolute;top:0;left:0;" ></canvas>
 <div id="image-info-box">
 <div id="image-info-title"><?php echo $image['title'] ?></div>
-<div id="image-info-published"><?php echo $image['published']; ?></div>
+<div id="image-info-published"><?php echo $pub_date_str ?></div>
 <div id="image-info-description-box">
     <div id="image-info-description"><?php echo $image['image_description']; ?></div>
 <!--     <div id="image-info-description-close"></div> -->
