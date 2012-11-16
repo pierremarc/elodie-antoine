@@ -285,8 +285,8 @@ position:absolute;
 }
 .text-content {
   font-family: Quattro, serif;
-  font-size: 18px;
-  line-height: 23px;
+  font-size: 17px;
+  line-height: 22px;
 }
 .text-content a:link {
   font-family: Quattro, serif;
@@ -338,7 +338,7 @@ position:absolute;
 #tags-index-box {
   position: absolute;
   padding: 10px;
-  top: 150px;
+  top: 100px;
   left: 150px;
   width: 80%;
 }
@@ -349,14 +349,15 @@ position:absolute;
 }
 .list-letter {
   font-family: Quattro, serif;
-  font-size: 40px;
+  font-size: 35px;
   text-transform: uppercase;
-  margin-top: 30px;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 0px;
   text-align: center;
 }
 .tag-box{
     text-align:center;
+    line-height: 20px;
 }
 
 /*********************
