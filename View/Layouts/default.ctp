@@ -14,11 +14,12 @@
         }
         if(isset($ref))
         {
-            array_unshift($_SESSION['history'], $ref);
+//             array_unshift($_SESSION['history'], $ref);
+            $_SESSION['history'][] = $ref;
         }
         if(count($_SESSION['history']) > 4)
         {
-            array_pop($_SESSION['history']);
+            array_shift($_SESSION['history']);
         }
         echo $this->Html->css('fistuline');
         echo $this->Html->css('date-picker');
