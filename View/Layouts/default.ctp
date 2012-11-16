@@ -35,7 +35,7 @@
 <body>
 <div id="header">
     <div id="name-box">
-        <a class="name-link" href="contact.html">Elodie Antoine</a>
+        <a class="name-link" href="/">Elodie Antoine</a>
     </div>
     <div id="navig-box">
     <span>
