@@ -91,6 +91,7 @@ foreach($Objs as $obj)
 </div>
 
 
+<div id="all-etiquettes"><a href="/tags" class="words">Index</a></div>
 <div id="etiquettes">
 <div class="high-word">
 <a href="" class="high-word" href="/tags/view/<?php echo $Tag['id'] ?>"><?php echo $Tag['tag_name'] ?></a>
@@ -105,7 +106,6 @@ foreach($Tags as $t)
     echo '<li><a href="/tags/view/'.$t['id'].'">'.$t['tag_name'].'</a></li>';
 }
 ?>
-<li id="all-etiquettes"><a href="/tags">tags index</a></li>
 </ul>
 
 </div>

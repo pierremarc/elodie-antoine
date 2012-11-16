@@ -97,20 +97,15 @@ C O L L E C T I O N S
 /* Etiquettes
  -------------------------------------------------------------- */
 #etiquettes {
+/*     border-top:2px solid #999; */
+    padding-top:.5em;
   position: absolute;
   z-index:10;
   right: 30px;
   top: 60px;
-  width: 250px;
+  width: 200px;
 }
-.high-word {
-  font-family: NewsCycle, sans;
-  font-size: 21px;
-  color: #ff8080;
-  list-style: none;
-  text-align: center;
-  text-decoration: none;
-}
+
 .high-word a:link {
   color: #ff8080;
   text-decoration: none;
@@ -131,6 +126,14 @@ C O L L E C T I O N S
 .words a:hover {
   color: black;
   text-decoration: underline;
+}
+
+.high-word {
+    color: #ff8080;
+    text-align: center;
+    font-family: NewsCycle, sans;
+    letter-spacing: 0.02em;
+    font-size: 18px;
 }
 /* Images
 -------------------------------------------------------------- */
@@ -315,10 +318,21 @@ position:absolute;
  */
 
 #all-etiquettes{
-    padding-top:1em;
+    position:absolute;
+    text-align:center;
+    top:22px;
+    right:30px;
+    width:200px;
+    z-index:100;
 }
 #all-etiquettes a{
-    border-top:2px solid rgb(255, 128, 128);
+/*     border-top:2px solid rgb(255, 128, 128); */
+    border-bottom:2px solid #888;
+    padding-bottom:6px;
+}
+
+#all-etiquettes a:hover{
+    color: rgb(255, 128, 128);
 }
 
 #tags-index-box {
