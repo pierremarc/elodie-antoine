@@ -5,7 +5,8 @@ $(document).ready(function()
 {
     var canvas = $('#canvas');
     var ctx =  canvas.get(0).getContext('2d');
-   
+    
+    var image_min = {x:0, y:0};
     var image_offset = {x:0, y:0};
     function showImage(undefined){
         var ww = $(window).width();
@@ -15,6 +16,10 @@ $(document).ready(function()
         var rr = new Geom.Rect(0,0, this.naturalWidth, this.naturalHeight);
         var wr = new Geom.Rect(0,0,ww, wh);
         rr.fitRect(wr, true);
+        
+        image_min.x = rr.width() - ww;
+        image_min.y = rr.height() - wh;
+        
         ctx.drawImage(this, rr.left(), rr.top(), rr.width(), rr.height());
         image_offset.x = rr.left();
         image_offset.y = rr.top();
@@ -38,14 +43,22 @@ $(document).ready(function()
                 var deltaX = evt.pageX - m_start_point.x;
                 var deltaY = evt.pageY - m_start_point.y;
                 
-                image_offset.x = image_offset.x + deltaX;
-                image_offset.y = image_offset.y + deltaY;
                 var img = image.get(0);
                 var ww = $(window).width();
                 var wh = $(window).height();
                 var rr = new Geom.Rect(0,0, img.naturalWidth, img.naturalHeight);
                 var wr = new Geom.Rect(0,0,ww, wh);
                 rr.fitRect(wr, true);
+                
+                // limit movement to visible image
+                image_offset.x = Math.min(image_offset.x + deltaX, 0);
+                image_offset.x = Math.max(image_offset.x, ww - rr.width());
+                image_offset.y = Math.min(image_offset.y + deltaY, 0);
+                image_offset.y = Math.max(image_offset.y + deltaY, wh - rr.height());
+                
+                // clear surface
+                ctx.clearRect(0,0,ww,wh);
+                
                 ctx.drawImage(img, image_offset.x, image_offset.y, rr.width(), rr.height());
                 m_start_point = {x:evt.pageX, y:evt.pageY};
             });
