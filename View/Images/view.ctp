@@ -5,12 +5,69 @@ $(document).ready(function()
 {
     var canvas = $('#canvas');
     var ctx =  canvas.get(0).getContext('2d');
+    canvas.attr({ width:$(window).width(), height:$(window).height()});
+    var al_w = 224;
+    var al_h = 4;
+    var al_center_x = ($(window).width() / 2.0) - (al_w / 2.0);
+    var al_center_y = ($(window).height() / 2.0) - (al_h / 2.0);
+    
+    var al_step = 24;
+    var al_offset = -al_step;
+    var loading = true;
+//     ctx.strokeRect(al_center_x ,al_center_y - 24,al_w  ,al_h + 48);
+    ctx.fillStyle = "#FCA";
+    ctx.strokeStyle = "#ACF";
+    ctx.font = 'bold 18px serif';
+    ctx.fillText('loading', al_center_x, al_center_y - 12);
+    function animate_loading()
+    {
+        if(!loading)
+            return;
+        ctx.clearRect(al_center_x - 2,al_center_y -2,al_w + 4 + al_step ,al_h + 4);
+        var sa = 0;
+        var fill = true;
+        var step = al_step;
+        for(var sb = al_offset; sb < al_w; sb += step)
+        {
+            if(fill)
+            {
+                var pw = step;
+                if((al_center_x + sb + step) > (al_center_x + al_w))
+                {
+                    pw = step - ((al_center_x + sb + step) - (al_center_x + al_w));
+                }
+                var start = al_center_x + sb;
+                if(start <= al_center_x)
+                {
+                    pw = pw + (start - al_center_x);
+                    start = al_center_x;
+                }
+                ctx.fillRect(start, al_center_y, pw, al_h);
+                ctx.strokeRect(start, al_center_y, pw, al_h);
+            
+                first_is_drawn = true;
+            }
+            fill = !fill;
+        }
+        al_offset += 2;
+        if( al_offset >= al_step )
+            al_offset = -al_step;
+//         if(al_offset >= al_step)
+//             al_dir = 0;
+           
+        window.setTimeout(animate_loading, 1000/25 , true);
+    }
+    animate_loading();
+    
+    
     
     var image_min = {x:0, y:0};
     var image_offset = {x:0, y:0};
     function showImage(undefined){
+        loading = false;
         var ww = $(window).width();
         var wh = $(window).height();
+        ctx.clearRect(0,0,ww,wh);
         canvas.attr({ width:ww, height:wh, });
 //         var that = $(this);
         var rr = new Geom.Rect(0,0, this.naturalWidth, this.naturalHeight);
