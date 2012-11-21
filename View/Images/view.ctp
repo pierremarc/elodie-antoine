@@ -120,7 +120,7 @@ $(document).ready(function()
                 m_start_point = {x:evt.pageX, y:evt.pageY};
             });
     });
-    image.attr('src', '/<?php echo IMAGES_URL.$image['image_file']; ?>');
+    image.attr('src', '/<?php echo IMAGES_URL.rawurlencode($image['image_file']); ?>');
 });
 </script>
 
