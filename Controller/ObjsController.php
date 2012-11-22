@@ -22,7 +22,7 @@ class ObjsController extends AppController
 		$this->Obj->read();
 		
 		$this->set('ref', array('url'=>'/objs/view/'.$id, 'name'=>$this->Obj->data['Obj']['title']));
-		
+		$this->set('page_title', $this->Obj->data['Obj']['title']);
 		$obj = $this->Obj->data['Obj'];
 		$this->set('tags', $this->Obj->data['Tag']);
 		if($obj['obj_type'] == TEXT_T)

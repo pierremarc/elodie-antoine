@@ -3,7 +3,16 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $title_for_layout; ?>
+		<?php 
+		if(isset($page_title))
+        {
+            echo $page_title;
+        }
+        else
+        {
+            echo $title_for_layout; 
+        }
+        ?>
 	</title>
 	<?php
         session_start();

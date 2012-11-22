@@ -4,12 +4,19 @@
 // debug($tags);
 // return;
 $ot = array();
+$yt = array();
 foreach($tags as $t)
 {
     if(!isset($t['Tag']['tag_name'][0]))
         continue;
         
     $fl = strtoupper($t['Tag']['tag_name'][0]);
+    if($fl === '2')
+    {
+        $yt[] =  $t['Tag'];
+        continue;
+    }
+    
     if(!isset($ot[$fl]))
     {
         $ot[$fl] = array();
@@ -28,7 +35,17 @@ foreach($ot as $k => $v)
     usort($ot[$k], "sort_tags");
 }
 
+usort($yt, "sort_tags");
 
+array_unshift($ot, array('years' => $yt));
+
+
+$ott = array();
+$ott[] = array('years',  $yt );
+foreach($ot as $tl=>$ta)
+{
+    $ott[] = array($tl, $ta);
+}
 ?>
 
 
@@ -45,8 +62,10 @@ for($i = 0; $i < $col_count; $i++)
 {
     $cols[$i] = array();
 }
-foreach($ot as $tl=>$ta)
+foreach($ott as $group)
 {
+    $tl= $group[0];
+    $ta= $group[1];
 //     echo '<div class="list-letter">'.(intval($tl) > 0 ? '' : $tl).'</div>';
     if($icount >= $per_col)
     {
