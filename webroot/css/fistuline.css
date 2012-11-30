@@ -71,6 +71,26 @@ C O L L E C T I O N S
   letter-spacing: 0.075em;
   text-decoration: none;
 }
+
+#info-box {
+    float: left;
+    width: 50px;
+    margin-left: 45px;
+    margin-top:40px;
+}
+
+#infos-link {
+    font-family: NewsCycle, sans;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#infos-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+
 #navig-box {
   position: relative;
   left: 174px;
