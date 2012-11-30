@@ -15,8 +15,8 @@ class ImageHelper extends Helper {
      * @param integer $height Height of returned image 
      * @param boolean $aspect Maintain aspect ratio (default: true) 
      * @param array    $htmlAttributes Array of HTML attributes. 
-     * @param boolean $urlonly Restituisce solamente l'url invece dell'immagine completa 
      * @param boolean $return Wheter this method should return a value or output it. This overrides AUTO_OUTPUT. 
+     * @param boolean $urlonly Restituisce solamente l'url invece dell'immagine completa 
      * @return mixed    Either string or echos the value, depends on AUTO_OUTPUT and $return. 
      * @access public 
      */ 

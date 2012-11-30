@@ -43,8 +43,8 @@ class TagsController extends AppController
         $this->set('page_title', $tag_name);
         
 		$this->set('Tag', $tag['Tag']);
-// 		debug($tag['Obj']);
-		$this->set('Objs', $tag['Obj']);
+		$sort_objs = Set::sort($tag['Obj'], '{n}.published', 'desc');
+		$this->set('Objs', $sort_objs);
 		$tags = array();
 		foreach($tag['Obj'] as $o)
 		{
