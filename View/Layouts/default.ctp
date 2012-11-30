@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<LINK REL="SHORTCUT ICON" href="./webroot/favicon.png">
 	<?php echo $this->Html->charset(); ?>
 	
 	<title>

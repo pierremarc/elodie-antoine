@@ -73,10 +73,12 @@ C O L L E C T I O N S
 }
 
 #info-box {
-/*     float: left; */
- /*   width: 50px;
+    position: absolute;
+    top : 20px;
+    left: 180px;
+    float: left; 
+    width: 50px;
     margin-left: 45px;
-    margin-top:40px;*/
 }
 
 #infos-link {
@@ -115,28 +117,61 @@ C O L L E C T I O N S
   line-height: 24px;
 }
 
+.titres-infos {
+    font-family: Quattro, serif;
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
 #contact {
-    position: float left;
-    left: 40px;
+    position: absolute;
+    top : 60px;
     width: 300px;
     text-align: left;
-    margin-top:40px;
     margin-left:40px;
     font-family: NewsCycle, sans;
-    letter-spacing: 0.02em;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 23px;
+}
+
+.contact-link{
+    text-decoration: underline;
 }
 
 #bio {
-    position: float left;
-    left: 40px;
-    width: 600px;
+    position: absolute;
+    top : 60px;
+    left: 500px;
+    width:600px;
+}
+
+p {
     text-align: left;
-    margin-top:40px;
     font-family: Quattro, serif;
     font-size: 17px;
     line-height: 22px;
+}
+b {
+    font-family: Quattro, serif;
+    font-weight: Regular;
+    text-transform: uppercase;  
+}
+
+.bio-parts{
+    font-family: NewsCycle, sans;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.07em;
+    margin-top:15px;
+    margin-bottom:5px;
+    text-indent:25px;
+}
+
+.dates{
+    color: #ff8080;
 }
 
 
@@ -160,7 +195,7 @@ C O L L E C T I O N S
   list-style: none;
   margin-top: 5px;
   font-family: NewsCycle, sans;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
   font-size: 18px;
   text-align: center;
   text-decoration: none;
