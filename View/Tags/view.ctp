@@ -65,7 +65,6 @@ foreach($Objs as $obj)
     else
     {
         $width = 320;
-//         print_r($obj);
         $height = 300;
         if($obj['image_height'])
         {

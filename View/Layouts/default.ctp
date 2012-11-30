@@ -61,9 +61,9 @@
 <div id="header">
     <div id="name-box">
         <a class="name-link" href="/">Elodie Antoine</a>
-    </div>
-    <div id="info-box">
-        <a id="infos-link" href="/">Infos</a>
+        <div id="info-box">
+        <a id="infos-link" href="/infos.html">Infos</a>
+        </div>
     </div>
     <div id="navig-box">
     <span>
