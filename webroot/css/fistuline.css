@@ -114,6 +114,19 @@ C O L L E C T I O N S
   text-decoration: none;
   line-height: 24px;
 }
+
+#contact {
+    position: relative;
+    left: 40px;
+    width: 200px;
+    text-align: left;
+    margin-top:40px;
+    font-family: NewsCycle, sans;
+    letter-spacing: 0.02em;
+    font-size: 18px;
+}
+
+
 /* Etiquettes
  -------------------------------------------------------------- */
 #etiquettes {
