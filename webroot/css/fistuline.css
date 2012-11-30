@@ -116,14 +116,27 @@ C O L L E C T I O N S
 }
 
 #contact {
-    position: relative;
+    position: float left;
     left: 40px;
-    width: 200px;
+    width: 300px;
     text-align: left;
     margin-top:40px;
+    margin-left:40px;
     font-family: NewsCycle, sans;
     letter-spacing: 0.02em;
     font-size: 18px;
+    line-height: 24px;
+}
+
+#bio {
+    position: float left;
+    left: 40px;
+    width: 600px;
+    text-align: left;
+    margin-top:40px;
+    font-family: Quattro, serif;
+    font-size: 17px;
+    line-height: 22px;
 }
 
 
