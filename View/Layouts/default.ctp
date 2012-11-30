@@ -2,18 +2,30 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
+	
 	<title>
 		<?php 
+		$meta_page_title = $title_for_layout;
 		if(isset($page_title))
         {
-            echo $page_title;
+            $meta_page_title = $page_title;
         }
-        else
-        {
-            echo $title_for_layout; 
-        }
+        echo $meta_page_title;
         ?>
 	</title>
+	
+	<meta property="og:title" content="<?php echo $meta_page_title; ?>" />
+	<meta property="og:type" content="design" />
+	<?php
+	if(isset($image))
+    {
+        $meta_og_image = $this->Image->resize($image['image_file'], 300, 300, true, array(), true, true);
+        echo '<meta property="og:image" content="http://elodieantoine.be'.$meta_og_image.'" />';
+    }
+	?>
+	<meta property="og:site_name" content="Elodie Antoine" />
+	<meta property="fb:admins" content="100000916811655" />
+	
 	<?php
         session_start();
 //         debug($_SESSION['history']);
@@ -25,6 +37,10 @@
         {
 //             array_unshift($_SESSION['history'], $ref);
             $_SESSION['history'][] = $ref;
+            echo '
+            <meta property="og:url" content="http://elodieantoine.be'.$ref['url'].'" />
+            ';
+            
         }
         if(count($_SESSION['history']) > 4)
         {
@@ -65,6 +81,15 @@
     </div>
 </div>
 	<?php echo $this->fetch('content'); ?>
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+             js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=468664809842172";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
 

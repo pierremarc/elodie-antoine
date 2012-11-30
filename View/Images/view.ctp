@@ -145,7 +145,9 @@ if($pdm === '01' && $pdd === '01')
 <div id="image-info-description-box">
     <div id="image-info-description"><?php echo $image['image_description']; ?></div>
 <!--     <div id="image-info-description-close"></div> -->
+
 </div>
+<div class="fb-like" data-send="false" data-layout="button_count" data-width="132" data-show-faces="false"></div>
 </div>
 <!-- <div id="image"><img src="/<?php echo IMAGES_URL.$image['image_file']; ?>" /></div> -->
 
