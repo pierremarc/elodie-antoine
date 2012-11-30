@@ -10,6 +10,26 @@ class TagsController extends AppController
 		$this->set('tags', $this->Tag->find('all'));
 	}
 	
+	public function tag($t_name = null)
+	{
+        if(!$t_name)
+        {
+            $this->index();
+            return;
+        }
+        $tag = $this->Tag->findByTagName($t_name);
+        if($tag)
+        {
+            $this->view($tag['Tag']['id']);
+            $this->render('view');
+        }
+        else
+        {
+            $this->index();
+            return;
+        }
+	}
+	
 	public function view($id = null) 
 	{
         $this->helpers[] = 'Image';
