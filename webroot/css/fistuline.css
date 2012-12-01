@@ -193,10 +193,10 @@ b {
 }
 .words {
   list-style: none;
-  margin-top: 5px;
+  margin-top: 3px;
   font-family: NewsCycle, sans;
   letter-spacing: 0.06em;
-  font-size: 18px;
+  font-size: 17px;
   text-align: center;
   text-decoration: none;
 }
@@ -241,15 +241,18 @@ a:hover span {
   -webkit-transition-duration: .6s;
   background-color: #FFFFFF;
   opacity: 0.6;
-  margin-top: -20px;
+  margin-top: -28px;
   bottom: 0;
   height: 20px;
   left: 0;
 }
 .pict-cartel {
   font-family: NewsCycle, sans;
-  font-size: 12px;
+  font-size: 15px;
   padding-left: 5px;
+  margin-bottom:3px;
+  padding-bottom: 5px;
+  height: 15px;
   text-decoration: none;
 }
 .pict-cartel a:link a:hover {
@@ -375,8 +378,8 @@ position:absolute;
 .text-content-collec {
   margin-top: 15px;
   font-family: Quattro, serif;
-  font-size: 18px;
-  line-height: 23px;
+  font-size: 17px;
+  line-height: 21px;
 }
 .thread-links {
   font-family: Quattro, serif;
