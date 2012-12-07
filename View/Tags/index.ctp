@@ -41,7 +41,7 @@ array_unshift($ot, array('years' => $yt));
 
 
 $ott = array();
-$ott[] = array('years',  $yt );
+$ott[] = array('',  $yt );
 foreach($ot as $tl=>$ta)
 {
     $ott[] = array($tl, $ta);
