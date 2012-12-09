@@ -49,6 +49,7 @@
         }
         echo $this->Html->css('fistuline');
         echo $this->Html->css('date-picker');
+        echo $this->Html->css('colorpicker');
         
         $this->Html->script('jquery', array('inline' => false));
         $this->Html->script('geom', array('inline' => false));

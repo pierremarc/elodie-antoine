@@ -138,6 +138,7 @@ if($pdm === '01' && $pdd === '01')
 
 ?>
 
+<div id="fb-like-anchor" class="fb-like" data-send="false" data-layout="button_count" data-width="132" data-show-faces="false"></div>
 <canvas id="canvas" style="position:absolute;top:0;left:0;" ></canvas>
 <div id="image-info-box">
 <div id="image-info-title"><?php echo $image['title'] ?></div>
@@ -147,7 +148,6 @@ if($pdm === '01' && $pdd === '01')
 <!--     <div id="image-info-description-close"></div> -->
 
 </div>
-<div class="fb-like" data-send="false" data-layout="button_count" data-width="132" data-show-faces="false"></div>
 </div>
 <!-- <div id="image"><img src="/<?php echo IMAGES_URL.$image['image_file']; ?>" /></div> -->
 

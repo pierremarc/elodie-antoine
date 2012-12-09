@@ -87,6 +87,15 @@ $(document).ready(function(){
     $('#ObjImageFile').on('change', mark_img_update);
     $('#ObjPublished').datepicker({ dateFormat: "yy-mm-dd" });
     
+    $('#ObjTextColor').ColorPicker({
+        onSubmit: function(hsb, hex, rgb, el) {
+            $(el).val(hex);
+            $(el).ColorPickerHide();
+        },
+        onBeforeShow: function () {
+            $(this).ColorPickerSetColor(this.value);
+        }
+    });
     
     if($('#obj_type').val() === 'image_t')
     {

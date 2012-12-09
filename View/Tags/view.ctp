@@ -55,10 +55,11 @@ foreach($Objs as $obj)
     $type = $obj['obj_type'];
     if($type === 'text_t')
     {
+        $author = strlen(trim($obj['text_author'])) > 0 ? $obj['text_author'] . ', ' : '';
         echo '
-        <div id="o_'.$obj['id'].'" class="text-collection-box piece-block">
+        <div id="o_'.$obj['id'].'" class="text-collection-box piece-block" style="background-color:#'.$obj['text_color'].'">
         <h1 class="text-title"><a href="/objs/view/'.$obj['id'].'">'.$obj['title'].'</a></h1>
-        <div class="text-author"> '.$obj['text_author'].', '.$obj['published'].'</div>
+        <div class="text-author"> '.$author.$obj['published'].'</div>
         <div class="text-content-collec">'.$obj['text_content'].'</div>
         </div>';
     }

@@ -11,6 +11,10 @@ class ObjsController extends AppController
         
 	public function index() 
 	{
+        if(isset($_GET['cc']))
+        {
+            clearCache();
+        }
 		$this->set('texts', $this->Obj->find('all', array( 'conditions' => array('obj_type' => TEXT_T))));
 		$this->set('images', $this->Obj->find('all', array( 'conditions' => array('obj_type' => IMAGE_T))));
 	}
@@ -86,7 +90,7 @@ class ObjsController extends AppController
 		}
 		else
 		{
-			$this->set('tags', $this->Tag->find('all'));
+            $this->set('tags', $this->Tag->find('all',array('order'=> array('Tag.tag_name'))));
 		}
 	}
 	
@@ -97,7 +101,7 @@ class ObjsController extends AppController
         {
             $this->loadModel('Tag');
             $this->set('Obj', $this->Obj->read());
-            $this->set('tags', $this->Tag->find('all'));
+            $this->set('tags', $this->Tag->find('all', array('order'=> array('Tag.tag_name'))));
         } 
         else 
         {

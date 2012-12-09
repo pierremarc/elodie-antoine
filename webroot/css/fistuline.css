@@ -264,7 +264,7 @@ a:hover span {
 #image-info-box{
     position:absolute;
     bottom:30px;
-    left:30px;
+    left:48px;
     width:300px;
     background-color:white;
     opacity:.7;
@@ -634,10 +634,17 @@ label{
     left:200px;
 }
 
-iframe{
+#fb-like-anchor{
+    position:absolute;
+    z-index:9999;
+    top:64px;
+    left:44px;
+}
+
+/*iframe{
     position: absolute;
     bottom: 0;
     padding: 12px;
     background-color: white;
     border: 1px solid grey;
-}
+}*/

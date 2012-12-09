@@ -18,6 +18,7 @@ foreach($tags as $t)
 
 $this->Html->script('jquery', array('inline' => false));
 $this->Html->script('jquery-ui-datepicker', array('inline' => false));
+$this->Html->script('colorpicker', array('inline' => false));
 $this->Html->script('ao', array('inline' => false));
 
 echo '
@@ -66,6 +67,22 @@ echo '
 echo $this->Form->input('text_content', array('label'=>'', 'default'=>$Obj['Obj']['text_content']));
 echo '  
 </div>';
+
+echo '
+<div id="form-text-color-label">Color</div>
+';
+echo '
+<!-- 
+';
+print_r($Obj['Obj']);
+echo '
+-->
+';
+echo $this->Form->input('text_color', array('label'=>'', 'default'=>$Obj['Obj']['text_color']));
+echo '  
+</div>';
+
+
 echo '
 </div>';
 
