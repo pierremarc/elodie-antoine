@@ -143,8 +143,8 @@ C O L L E C T I O N S
 #bio {
     position: absolute;
     top : 60px;
-    left: 500px;
-    width:600px;
+    left: 450px;
+    width:700px;
 }
 
 p {
@@ -153,10 +153,12 @@ p {
     font-size: 17px;
     line-height: 22px;
 }
-b {
+.titles {
     font-family: Quattro, serif;
-    font-weight: Regular;
-    text-transform: uppercase;  
+    text-decoration: none;
+    background: url(fil.png) repeat-x 100% 100%;
+    padding-bottom: 6px;
+    white-space: nowrap;
 }
 
 .bio-parts{
