@@ -10,7 +10,10 @@ foreach($tags as $t)
     if(!isset($t['Tag']['tag_name'][0]))
         continue;
         
-    $fl = strtoupper($t['Tag']['tag_name'][0]);
+    $fl = mb_strtoupper(mb_substr($t['Tag']['tag_name'], 0, 1));
+//     echo '<pre>=> '.$fl.'</pre>' ;
+    $fl = str_replace(array('É','À'), array('E','A'), $fl);
+//     echo '<pre>=> '.$fl.'</pre>' ;
     if($fl === '2')
     {
         $yt[] =  $t['Tag'];
@@ -52,7 +55,7 @@ foreach($ot as $tl=>$ta)
 <div id="tags-index-box">
 
 <?php
-$col_count = 4;
+$col_count = 6;
 $g_count = count($ot);
 $per_col = ceil($g_count / $col_count);
 $count = 0;
