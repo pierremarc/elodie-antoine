@@ -337,6 +337,20 @@ position:absolute;
     width: 250px;
 }
 
+.text_more{
+    float:right;
+    width:70px;
+    line-height:12pt;
+}
+
+.text_more a{
+    font-style:italic;
+    font-size:10pt;
+}
+.text_more a:hover{
+    border-bottom:1px solid;
+}
+
 .text-title a{
     text-decoration:none;
 }
