@@ -3,6 +3,7 @@
 <script>
 $(document).ready(function(){
     $('#header').hide();
+    $('#ObjTextContent').markItUp(MarkDownSettings);
     });
 var tags = {};
 <?php
@@ -16,9 +17,13 @@ foreach($tags as $t)
 
 <?php
 
+
+
 $this->Html->script('jquery', array('inline' => false));
 $this->Html->script('jquery-ui-datepicker', array('inline' => false));
 $this->Html->script('colorpicker', array('inline' => false));
+$this->Html->script('markitup/jquery.markitup', array('inline' => false));
+$this->Html->script('markitup/sets/markdown/set', array('inline' => false));
 $this->Html->script('ao', array('inline' => false));
 
 echo '

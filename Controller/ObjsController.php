@@ -90,7 +90,8 @@ class ObjsController extends AppController
 			}
 		}
 		else
-		{
+        {
+            $this->set('is_admin', true);
             $this->set('tags', $this->Tag->find('all',array('order'=> array('Tag.tag_name'))));
 		}
 	}
@@ -101,6 +102,7 @@ class ObjsController extends AppController
         if ($this->request->is('get')) 
         {
             $this->loadModel('Tag');
+            $this->set('is_admin', true);
             $this->set('Obj', $this->Obj->read());
             $this->set('tags', $this->Tag->find('all', array('order'=> array('Tag.tag_name'))));
         } 

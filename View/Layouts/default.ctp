@@ -48,8 +48,13 @@
             array_shift($_SESSION['history']);
         }
         echo $this->Html->css('fistuline');
-        echo $this->Html->css('date-picker');
-        echo $this->Html->css('colorpicker');
+        if(isset($is_admin) && $is_admin)
+        {
+            echo $this->Html->css('date-picker');
+            echo $this->Html->css('colorpicker');
+            echo $this->Html->css('/js/markitup/skins/simple/style');
+            echo $this->Html->css('/js/markitup/sets/markdown/style');
+        }
         
         $this->Html->script('jquery', array('inline' => false));
         $this->Html->script('geom', array('inline' => false));
