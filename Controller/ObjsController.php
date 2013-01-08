@@ -22,6 +22,7 @@ class ObjsController extends AppController
 	public function view($id = null) 
 	{
         $this->helpers[] = 'Image';
+        $this->helpers[] = 'Markdown';
 		$this->Obj->id = $id;
 		$this->Obj->read();
 		

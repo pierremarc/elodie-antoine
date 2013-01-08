@@ -49,7 +49,7 @@ if($pdm === '01' && $pdd === '01')
     ?>
 
     <div id="text-box">
-        <div class="text-content"><?php echo $text['text_content']; ?></div>
+    <div class="text-content"><?php echo $this->Markdown->tr($text['text_content']); ?></div>
     </div>
 </div>
 

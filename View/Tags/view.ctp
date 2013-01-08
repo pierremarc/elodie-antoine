@@ -61,7 +61,7 @@ foreach($Objs as $obj)
         <div class="text_more"><a href="/objs/view/'.$obj['id'].'">Lire en plein écran.</a></div>
         <h1 class="text-title"><a href="/objs/view/'.$obj['id'].'">'.$obj['title'].'</a></h1>
         <div class="text-author"> '.$author.$obj['published'].'</div>
-        <div class="text-content-collec">'.$obj['text_content'].'</div>
+        <div class="text-content-collec">'.$this->Markdown->tr($obj['text_content']).'</div>
         </div>';
     }
     else
