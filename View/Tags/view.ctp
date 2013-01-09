@@ -58,7 +58,7 @@ foreach($Objs as $obj)
         $author = strlen(trim($obj['text_author'])) > 0 ? $obj['text_author'] . ', ' : '';
         echo '
         <div id="o_'.$obj['id'].'" class="text-collection-box piece-block" style="background-color:#'.$obj['text_color'].'">
-        <div class="text_more"><a href="/objs/view/'.$obj['id'].'">Lire en plein écran.</a></div>
+        <div class="text_more"><a href="/objs/view/'.$obj['id'].'">Lire en pleine page.</a></div>
         <h1 class="text-title"><a href="/objs/view/'.$obj['id'].'">'.$obj['title'].'</a></h1>
         <div class="text-author"> '.$author.$obj['published'].'</div>
         <div class="text-content-collec">'.$this->Markdown->tr($obj['text_content']).'</div>
