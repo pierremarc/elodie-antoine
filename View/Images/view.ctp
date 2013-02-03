@@ -6,65 +6,69 @@ $(document).ready(function()
     var canvas = $('#canvas');
     var ctx =  canvas.get(0).getContext('2d');
     canvas.attr({ width:$(window).width(), height:$(window).height()});
-    var al_w = 224;
-    var al_h = 4;
-    var al_center_x = ($(window).width() / 2.0) - (al_w / 2.0);
-    var al_center_y = ($(window).height() / 2.0) - (al_h / 2.0);
+//     var al_w = 224;
+//     var al_h = 4;
+//     var al_center_x = ($(window).width() / 2.0) - (al_w / 2.0);
+//     var al_center_y = ($(window).height() / 2.0) - (al_h / 2.0);
+//     
+//     var al_step = 24;
+//     var al_offset = -al_step;
+//     var loading = true;
+// //     ctx.strokeRect(al_center_x ,al_center_y - 24,al_w  ,al_h + 48);
+//     ctx.fillStyle = "#FCA";
+//     ctx.strokeStyle = "#ACF";
+//     ctx.font = 'bold 18px serif';
+//     ctx.fillText('loading', al_center_x, al_center_y - 12);
+//     function animate_loading()
+//     {
+//         if(!loading)
+//             return;
+//         ctx.clearRect(al_center_x - 2,al_center_y -2,al_w + 4 + al_step ,al_h + 4);
+//         var sa = 0;
+//         var fill = true;
+//         var step = al_step;
+//         for(var sb = al_offset; sb < al_w; sb += step)
+//         {
+//             if(fill)
+//             {
+//                 var pw = step;
+//                 if((al_center_x + sb + step) > (al_center_x + al_w))
+//                 {
+//                     pw = step - ((al_center_x + sb + step) - (al_center_x + al_w));
+//                 }
+//                 var start = al_center_x + sb;
+//                 if(start <= al_center_x)
+//                 {
+//                     pw = pw + (start - al_center_x);
+//                     start = al_center_x;
+//                 }
+//                 ctx.fillRect(start, al_center_y, pw, al_h);
+//                 ctx.strokeRect(start, al_center_y, pw, al_h);
+//             
+//                 first_is_drawn = true;
+//             }
+//             fill = !fill;
+//         }
+//         al_offset += 2;
+//         if( al_offset >= al_step )
+//             al_offset = -al_step;
+// //         if(al_offset >= al_step)
+// //             al_dir = 0;
+//            
+//         window.setTimeout(animate_loading, 1000/25 , true);
+//     }
+//     animate_loading();
     
-    var al_step = 24;
-    var al_offset = -al_step;
-    var loading = true;
-//     ctx.strokeRect(al_center_x ,al_center_y - 24,al_w  ,al_h + 48);
-    ctx.fillStyle = "#FCA";
-    ctx.strokeStyle = "#ACF";
-    ctx.font = 'bold 18px serif';
-    ctx.fillText('loading', al_center_x, al_center_y - 12);
-    function animate_loading()
-    {
-        if(!loading)
-            return;
-        ctx.clearRect(al_center_x - 2,al_center_y -2,al_w + 4 + al_step ,al_h + 4);
-        var sa = 0;
-        var fill = true;
-        var step = al_step;
-        for(var sb = al_offset; sb < al_w; sb += step)
-        {
-            if(fill)
-            {
-                var pw = step;
-                if((al_center_x + sb + step) > (al_center_x + al_w))
-                {
-                    pw = step - ((al_center_x + sb + step) - (al_center_x + al_w));
-                }
-                var start = al_center_x + sb;
-                if(start <= al_center_x)
-                {
-                    pw = pw + (start - al_center_x);
-                    start = al_center_x;
-                }
-                ctx.fillRect(start, al_center_y, pw, al_h);
-                ctx.strokeRect(start, al_center_y, pw, al_h);
-            
-                first_is_drawn = true;
-            }
-            fill = !fill;
-        }
-        al_offset += 2;
-        if( al_offset >= al_step )
-            al_offset = -al_step;
-//         if(al_offset >= al_step)
-//             al_dir = 0;
-           
-        window.setTimeout(animate_loading, 1000/25 , true);
-    }
-    animate_loading();
-    
-    
+    var image_width = <?php echo $image['image_width'] ?>;
+    var image_height = <?php echo $image['image_height'] ?>;
+    var image_sz_steps = 4;
+    var cur_sz = 1;
+    var szw = Math.floor(image_width / image_sz_steps * cur_sz);
+    var szh = Math.floor(szw * image_height / image_width);
     
     var image_min = {x:0, y:0};
     var image_offset = {x:0, y:0};
     function showImage(undefined){
-        loading = false;
         var ww = $(window).width();
         var wh = $(window).height();
         ctx.clearRect(0,0,ww,wh);
@@ -84,43 +88,62 @@ $(document).ready(function()
     var m_start_point = null;
     var image = $('<img />');
     image.on('load', function(e){
-        showImage.apply(image[0], []);
+        var the_image = image[0];
+        showImage.apply(the_image, []);
         $(window).on('resize', function(evt){
-                showImage.apply(image[0], []);
-            });
+            showImage.apply(the_image, []);
+        });
             
-            canvas.on('mousedown', function(evt){m_start_point = {x:evt.pageX, y:evt.pageY};});
-            canvas.on('mouseup', function(evt){m_start_point = null;});
-            canvas.on('mouseleave', function(evt){m_start_point = null;});
-            canvas.on('mousemove', function(evt){
-                if(m_start_point == null)
-                {
-                    return;
-                }
-                var deltaX = evt.pageX - m_start_point.x;
-                var deltaY = evt.pageY - m_start_point.y;
-                
-                var img = image.get(0);
-                var ww = $(window).width();
-                var wh = $(window).height();
-                var rr = new Geom.Rect(0,0, img.naturalWidth, img.naturalHeight);
-                var wr = new Geom.Rect(0,0,ww, wh);
-                rr.fitRect(wr, true);
-                
-                // limit movement to visible image
-                image_offset.x = Math.min(image_offset.x + deltaX, 0);
-                image_offset.x = Math.max(image_offset.x, ww - rr.width());
-                image_offset.y = Math.min(image_offset.y + deltaY, 0);
-                image_offset.y = Math.max(image_offset.y + deltaY, wh - rr.height());
-                
-                // clear surface
-                ctx.clearRect(0,0,ww,wh);
-                
-                ctx.drawImage(img, image_offset.x, image_offset.y, rr.width(), rr.height());
-                m_start_point = {x:evt.pageX, y:evt.pageY};
+        canvas.on('mousedown', function(evt){m_start_point = {x:evt.pageX, y:evt.pageY};});
+        canvas.on('mouseup', function(evt){m_start_point = null;});
+        canvas.on('mouseleave', function(evt){m_start_point = null;});
+        canvas.on('mousemove', function(evt){
+            if(m_start_point == null)
+            {
+                return;
+            }
+            var deltaX = evt.pageX - m_start_point.x;
+            var deltaY = evt.pageY - m_start_point.y;
+            
+            var img = image.get(0);
+            var ww = $(window).width();
+            var wh = $(window).height();
+            var rr = new Geom.Rect(0,0, img.naturalWidth, img.naturalHeight);
+            var wr = new Geom.Rect(0,0,ww, wh);
+            rr.fitRect(wr, true);
+            
+            // limit movement to visible image
+            image_offset.x = Math.min(image_offset.x + deltaX, 0);
+            image_offset.x = Math.max(image_offset.x, ww - rr.width());
+            image_offset.y = Math.min(image_offset.y + deltaY, 0);
+            image_offset.y = Math.max(image_offset.y + deltaY, wh - rr.height());
+            
+            // clear surface
+            ctx.clearRect(0,0,ww,wh);
+            
+            ctx.drawImage(img, image_offset.x, image_offset.y, rr.width(), rr.height());
+            m_start_point = {x:evt.pageX, y:evt.pageY};
+        });
+        
+        if(cur_sz < image_sz_steps)
+        {
+            szw = Math.floor(image_width / image_sz_steps * cur_sz);
+            szh = Math.floor(szw * image_height / image_width);
+            $.getJSON('/thumbnails/view/<?php echo $image['id'] ?>', {w:szw,h:szh}, function(data){
+                cur_sz +=1 ;
+                image.attr('src', data.url);
             });
+        }
+        else if(cur_sz === image_sz_steps)
+        {
+            image.attr('src', '/<?php echo IMAGES_URL.rawurlencode($image['image_file']); ?>');
+        }
     });
-    image.attr('src', '/<?php echo IMAGES_URL.rawurlencode($image['image_file']); ?>');
+    $.getJSON('/thumbnails/view/<?php echo $image['id'] ?>', {w:szw,h:szh}, function(data){
+        cur_sz +=1 ;
+        image.attr('src', data.url);
+    });
+//     image.attr('src', '/<?php echo IMAGES_URL.rawurlencode($image['image_file']); ?>');
 });
 </script>
 
