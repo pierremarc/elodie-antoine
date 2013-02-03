@@ -40,15 +40,16 @@ foreach($ot as $k => $v)
 
 usort($yt, "sort_tags");
 
-array_unshift($ot, array('years' => $yt));
-
+// array_unshift($ot, array('years' => $yt));
 
 $ott = array();
 $ott[] = array('',  $yt );
 foreach($ot as $tl=>$ta)
 {
     $ott[] = array($tl, $ta);
+    error_log('O ['.$tl.']['.count($ta).']');
 }
+// debug($ott);
 ?>
 
 
@@ -79,7 +80,8 @@ foreach($ott as $group)
     $cols[$count][] = '<div class="list-letter">'.(intval($tl) > 0 ? '' : $tl).'</div>';
     foreach($ta as $t)
     {
-        $cols[$count][] = '<div class="tag-box"><a href="/tags/view/'.$t['id'].'"> '.$t['tag_name'].' </a></div>';
+        if(isset($t['id']))
+            $cols[$count][] = '<div class="tag-box"><a href="/tags/view/'.$t['id'].'"> '.$t['tag_name'].' </a></div>';
     }
     $icount += 1;
 //     echo '</div>';
