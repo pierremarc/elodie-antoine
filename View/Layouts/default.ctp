@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<?php session_start();?><!DOCTYPE html>
 <html>
 <head>
-<LINK REL="SHORTCUT ICON" href="./webroot/favicon.png">
-	<?php echo $this->Html->charset(); ?>
+	<?php 
+	echo $this->Html->charset(); 
+	echo $this->Html->meta('icon',$this->webroot.'favicon.png', array('type' => 'icon'));
+	?>
 	
 	<title>
 		<?php 
@@ -28,16 +30,27 @@
 	<meta property="fb:admins" content="100000916811655" />
 	
 	<?php
-        session_start();
-//         debug($_SESSION['history']);
+//         debug($_SESSION);
         if (!isset($_SESSION['history']) || isset($_GET['ch']))
         {
             $_SESSION['history'] = array();
         }
-        if(isset($ref))
+//         error_log('H => '.(count($_SESSION['history'])).' ['.$ref['ip'].']');
+        if(isset($ref) && $ref['mark'])
         {
-//             array_unshift($_SESSION['history'], $ref);
-            $_SESSION['history'][] = $ref;
+            $mark_it = true;
+            foreach($_SESSION['history'] as $sh)
+            {
+                if($sh['url'] === $ref['url'])
+                {
+                    $mark_it = false;
+                    break;
+                }
+            }
+            if($mark_it)
+            {
+                array_push($_SESSION['history'], array('url'=>$ref['url'], 'name' => $ref['name']));
+            }
             echo '
             <meta property="og:url" content="http://elodieantoine.be'.$ref['url'].'" />
             ';

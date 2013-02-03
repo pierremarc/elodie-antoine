@@ -26,7 +26,7 @@ class ObjsController extends AppController
 		$this->Obj->id = $id;
 		$this->Obj->read();
 		
-		$this->set('ref', array('url'=>'/objs/view/'.$id, 'name'=>$this->Obj->data['Obj']['title']));
+		$this->set('ref', array('ip' => $this->request->url,'mark' => true, 'url'=>'/objs/view/'.$id, 'name'=>$this->Obj->data['Obj']['title']));
 		$this->set('page_title', $this->Obj->data['Obj']['title']);
 		$obj = $this->Obj->data['Obj'];
 		$this->set('tags', $this->Obj->data['Tag']);

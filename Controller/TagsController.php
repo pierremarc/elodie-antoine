@@ -38,7 +38,7 @@ class TagsController extends AppController
 		$tag = $this->Tag->read();
 		$this->loadModel('Obj');
 		
-		$this->set('ref', array('url'=>'/tags/view/'.$id, 'name'=>$tag['Tag']['tag_name']));
+		$this->set('ref', array('ip' => $this->request->url, 'mark' => true, 'url'=>'/tags/view/'.$id, 'name'=>$tag['Tag']['tag_name']));
 		
 		$tag_name = $tag['Tag']['tag_name'];
         $this->set('page_title', $tag_name);
