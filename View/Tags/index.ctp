@@ -81,7 +81,20 @@ foreach($ott as $group)
     foreach($ta as $t)
     {
         if(isset($t['id']))
-            $cols[$count][] = '<div class="tag-box"><a href="/tags/view/'.$t['id'].'"> '.$t['tag_name'].' </a></div>';
+        {
+            if($loggedIn)
+            {
+                $cols[$count][] = '
+                <div class="tag-box">
+                <a href="/tags/view/'.$t['id'].'"> '.$t['tag_name'].' </a>
+                <span class="tag-remove" data-tid="'.$t['id'].'">[del]</span>
+                </div>';
+            }
+            else
+            {
+                $cols[$count][] = '<div class="tag-box"><a href="/tags/view/'.$t['id'].'"> '.$t['tag_name'].' </a></div>';
+            }
+        }
     }
     $icount += 1;
 //     echo '</div>';
@@ -93,3 +106,15 @@ foreach($cols as $c)
 ?>
 
 </div>
+
+<script>
+$(document).ready(function(){
+    $('.tag-remove').on('click', function(evt){
+        var self = $(this);
+        var tid = self.attr('data-tid');
+        $.get('/tags/remove/'+tid, function(){
+            self.parent().remove();
+        });
+    });
+});
+</script>

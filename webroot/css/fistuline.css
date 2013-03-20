@@ -461,6 +461,17 @@ position:absolute;
     line-height: 20px;
 }
 
+.tag-remove{
+    padding-left:10px;
+    font-weight:bold;
+    font-size:70%;
+    font-family:monospace;
+    cursor:pointer;
+}
+.tag-remove:hover{
+    color:red;
+}
+
 /*********************
  * Admin
  * *******************/

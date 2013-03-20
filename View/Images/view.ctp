@@ -61,7 +61,7 @@ $(document).ready(function()
     
     var image_width = <?php echo $image['image_width'] ?>;
     var image_height = <?php echo $image['image_height'] ?>;
-    var image_sz_steps = 4;
+    var image_sz_steps = 6;
     var cur_sz = 1;
     var szw = Math.floor(image_width / image_sz_steps * cur_sz);
     var szh = Math.floor(szw * image_height / image_width);

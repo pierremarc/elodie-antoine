@@ -104,4 +104,10 @@ class TagsController extends AppController
 		}
 		
 	}
+	
+	public function remove($id)
+	{
+        $this->Tag->delete($id);
+        $this->autoRender = false;
+    }
 }

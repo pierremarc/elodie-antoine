@@ -43,4 +43,9 @@ class AppController extends Controller {
     {
         $this->Auth->allow('index', 'view', 'tag');
     }
+    public function beforeRender() 
+    {
+        $this->set('userData', $this->Auth->user());
+        $this->set('loggedIn', $this->Auth->loggedIn());
+    }
 }
