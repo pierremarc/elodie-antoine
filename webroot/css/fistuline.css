@@ -154,7 +154,13 @@ p {
     line-height: 22px;
 }
 .titles {
-    font-family: Quattro, serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: NewsCycle, sans;
+    letter-spacing: 0.05em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /*font-family: Quattro, serif;*/
     text-decoration: none;
     background: url(fil.png) repeat-x 100% 100%;
     padding-bottom: 6px;
@@ -172,7 +178,11 @@ p {
     text-indent:25px;
 }
 
-.dates{
+/*.dates{
+    color: #ff8080;
+}*/
+.datesinfos{
+    font-size:15px;
     color: #ff8080;
 }
 
